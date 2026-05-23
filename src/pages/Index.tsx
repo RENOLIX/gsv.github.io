@@ -102,7 +102,7 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="py-24 bg-white border-t border-gray-100">
+      <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <div className="mb-12">

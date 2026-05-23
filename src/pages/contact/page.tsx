@@ -17,10 +17,10 @@ const CONTACT_INFO = [
 
 const SERVICES_LIST = ["Videosurveillance (CCTV)", "Systeme Anti-Intrusion", "Detection Incendie", "Controle d'Acces", "Scanner Corporel", "Securite Anti-Vol", "Sonorisation & AV", "Reseaux Informatiques", "Fourniture Materiel Bureautique & IT", "Domotique & Automatisation", "Autre"];
 
-type FormState = { name: string; company: string; email: string; phone: string; service: string; message: string };
+type FormState = { name: string; customerType: "Entreprise" | "Particulier"; company: string; email: string; phone: string; service: string; message: string };
 
 export default function ContactPage() {
-  const [form, setForm] = useState<FormState>({ name: "", company: "", email: "", phone: "", service: "", message: "" });
+  const [form, setForm] = useState<FormState>({ name: "", customerType: "Entreprise", company: "", email: "", phone: "", service: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const set = (field: keyof FormState, value: string) => setForm((p) => ({ ...p, [field]: value }));
@@ -58,20 +58,41 @@ export default function ContactPage() {
                   <div className="gsv-accent-icon w-14 h-14 rounded-full flex items-center justify-center mb-5"><CheckCircle size={28} /></div>
                   <h3 className="text-xl font-bold mb-2 text-gray-900">Message envoye !</h3>
                   <p className="text-gray-500 text-sm max-w-xs">Merci pour votre demande. Notre equipe vous contactera dans les meilleurs delais.</p>
-                  <button className="mt-7 inline-flex items-center justify-center px-6 py-2.5 rounded-xl text-sm font-semibold cursor-pointer bg-white border border-gray-200 shadow-sm" onClick={() => { setSubmitted(false); setForm({ name: "", company: "", email: "", phone: "", service: "", message: "" }); }}>Nouvelle demande</button>
+                  <button className="mt-7 inline-flex items-center justify-center px-6 py-2.5 rounded-xl text-sm font-semibold cursor-pointer bg-white border border-gray-200 shadow-sm" onClick={() => { setSubmitted(false); setForm({ name: "", customerType: "Entreprise", company: "", email: "", phone: "", service: "", message: "" }); }}>Nouvelle demande</button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div><h2 className="text-lg font-semibold text-gray-900 mb-1">Demande de devis gratuit</h2><p className="text-sm text-gray-400">Les champs marques <span className="text-red-500">*</span> sont obligatoires.</p></div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Nom complet <span className="text-red-500">*</span></label><Input placeholder="Jean Dupont" value={form.name} onChange={(e) => set("name", e.target.value)} /></div>
-                    <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Societe / Organisme</label><Input placeholder="Votre entreprise" value={form.company} onChange={(e) => set("company", e.target.value)} /></div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-gray-500">Type de client</label>
+                      <div className="grid grid-cols-2 gap-2 rounded-md bg-gray-100 p-1">
+                        {(["Entreprise", "Particulier"] as const).map((type) => (
+                          <button
+                            key={type}
+                            type="button"
+                            onClick={() => set("customerType", type)}
+                            className={`h-9 rounded-md text-sm font-semibold transition-all ${
+                              form.customerType === type
+                                ? "gsv-gradient-button"
+                                : "bg-transparent text-gray-500 hover:text-gray-900"
+                            }`}
+                          >
+                            {type}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Societe / Organisme</label><Input placeholder="Votre entreprise" value={form.company} onChange={(e) => set("company", e.target.value)} /></div>
                     <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Email <span className="text-red-500">*</span></label><Input type="email" placeholder="exemple@email.com" value={form.email} onChange={(e) => set("email", e.target.value)} /></div>
-                    <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Telephone</label><Input type="tel" placeholder="+213 555 000 000" value={form.phone} onChange={(e) => set("phone", e.target.value)} /></div>
                   </div>
-                  <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Service concerne</label><Select onValueChange={(v) => set("service", v)}><SelectTrigger><SelectValue placeholder="Selectionner un service..." /></SelectTrigger><SelectContent>{SERVICES_LIST.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}</SelectContent></Select></div>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Telephone</label><Input type="tel" placeholder="+213 555 000 000" value={form.phone} onChange={(e) => set("phone", e.target.value)} /></div>
+                    <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Service concerne</label><Select onValueChange={(v) => set("service", v)}><SelectTrigger><SelectValue placeholder="Selectionner un service..." /></SelectTrigger><SelectContent>{SERVICES_LIST.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}</SelectContent></Select></div>
+                  </div>
                   <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Description du besoin <span className="text-red-500">*</span></label><Textarea placeholder="Decrivez votre projet..." rows={5} value={form.message} onChange={(e) => set("message", e.target.value)} className="resize-none" /></div>
                   <button type="submit" disabled={loading} className="gsv-gradient-button w-full inline-flex items-center justify-center h-11 px-6 rounded-xl text-sm font-semibold disabled:opacity-60 cursor-pointer transition-all duration-200">{loading ? "Envoi en cours..." : <><Send size={15} className="mr-2" />Envoyer la demande</>}</button>
                 </form>
