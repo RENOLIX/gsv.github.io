@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
 const mediaItems = [
   ...Array.from({ length: 26 }, (_, index) => ({
     type: "image" as const,
@@ -11,11 +14,15 @@ const mediaItems = [
   })),
 ];
 
-const track = [...mediaItems, ...mediaItems];
-
 export default function RealisationsMarquee() {
+  const [current, setCurrent] = useState(0);
+  const item = mediaItems[current];
+
+  const previous = () => setCurrent((value) => (value === 0 ? mediaItems.length - 1 : value - 1));
+  const next = () => setCurrent((value) => (value === mediaItems.length - 1 ? 0 : value + 1));
+
   return (
-    <section className="py-20 bg-white border-y border-gray-100 overflow-hidden">
+    <section className="py-20 bg-white border-y border-gray-100">
       <div className="max-w-6xl mx-auto px-6 mb-10">
         <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">Nos realisations</p>
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">Des installations realisees sur le terrain</h2>
@@ -24,31 +31,20 @@ export default function RealisationsMarquee() {
         </p>
       </div>
 
-      <div className="relative">
-        <div
-          className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 sm:w-28"
-          style={{ background: "linear-gradient(to right, white, transparent)" }}
-        />
-        <div
-          className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 sm:w-28"
-          style={{ background: "linear-gradient(to left, white, transparent)" }}
-        />
-
-        <div className="realisations-track flex items-stretch gap-4 sm:gap-5">
-          {track.map((item, index) => (
-            <div
-              key={`${item.src}-${index}`}
-              className="relative h-64 w-48 shrink-0 overflow-hidden rounded-xl bg-gray-100 shadow-sm sm:h-80 sm:w-64"
-            >
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid gap-5 lg:grid-cols-[1fr_220px] lg:items-stretch">
+          <div className="relative overflow-hidden rounded-2xl bg-gray-100 shadow-xl shadow-gray-200/80">
+            <div className="aspect-[4/5] sm:aspect-[16/10] lg:aspect-[16/9]">
               {item.type === "image" ? (
                 <img
+                  key={item.src}
                   src={`${import.meta.env.BASE_URL}${item.src}`}
                   alt={item.title}
                   className="h-full w-full object-cover"
-                  loading="lazy"
                 />
               ) : (
                 <video
+                  key={item.src}
                   src={`${import.meta.env.BASE_URL}${item.src}`}
                   className="h-full w-full object-cover"
                   autoPlay
@@ -58,9 +54,35 @@ export default function RealisationsMarquee() {
                   preload="metadata"
                 />
               )}
-              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/55 to-transparent" />
             </div>
-          ))}
+            <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-16 text-white">
+              <span className="text-sm font-semibold">Realisation {current + 1} / {mediaItems.length}</span>
+              <span className="text-xs text-white/75">{item.type === "video" ? "Video" : "Photo"}</span>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between gap-3 lg:flex-col lg:justify-center">
+            <button
+              type="button"
+              onClick={previous}
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-900 shadow-sm transition hover:border-blue-500 hover:text-blue-600"
+              aria-label="Realisation precedente"
+            >
+              <ChevronLeft size={22} />
+            </button>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-gray-900">{String(current + 1).padStart(2, "0")}</p>
+              <p className="text-xs uppercase tracking-wider text-gray-400">sur {mediaItems.length}</p>
+            </div>
+            <button
+              type="button"
+              onClick={next}
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-900 shadow-sm transition hover:border-red-500 hover:text-red-600"
+              aria-label="Realisation suivante"
+            >
+              <ChevronRight size={22} />
+            </button>
+          </div>
         </div>
       </div>
     </section>

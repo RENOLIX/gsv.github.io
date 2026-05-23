@@ -72,7 +72,6 @@ export default function Index() {
           loop
           playsInline
           preload="auto"
-          poster={`${import.meta.env.BASE_URL}brand/gsv-logo.png`}
           aria-hidden="true"
         >
           <source src={`${import.meta.env.BASE_URL}hero/gsv-hero-mobile.mp4`} media="(max-width: 767px)" type="video/mp4" />

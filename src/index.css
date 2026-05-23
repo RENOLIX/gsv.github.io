@@ -83,15 +83,6 @@
   animation-play-state: paused;
 }
 
-.realisations-track {
-  width: max-content;
-  animation: marquee 58s linear infinite;
-}
-
-.realisations-track:hover {
-  animation-play-state: paused;
-}
-
 .gsv-gradient-button {
   background: linear-gradient(135deg, #0b8fff 0%, #111827 54%, #ff1f2d 100%);
   color: white;
