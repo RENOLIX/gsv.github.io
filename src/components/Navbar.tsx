@@ -40,9 +40,9 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style={headerStyle}>
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           <Link to="/" className="flex items-center">
-            <img src={`${import.meta.env.BASE_URL}brand/gsv-logo.png`} alt="GSV Global Security Vision" className="gsv-logo-mark h-14 w-36 object-contain sm:h-16 sm:w-44" />
+            <img src={`${import.meta.env.BASE_URL}brand/gsv-logo.png`} alt="GSV Global Security Vision" className="gsv-logo-mark h-20 w-52 object-contain sm:h-24 sm:w-64" />
           </Link>
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
