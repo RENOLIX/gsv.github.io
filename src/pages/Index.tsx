@@ -112,8 +112,8 @@ export default function Index() {
             <div className="lg:absolute lg:right-0 lg:top-0 lg:w-[56%]">
               <div className="border-t-4 border-blue-500 border-r-4 border-r-red-500 shadow-xl shadow-gray-200/80">
                 <img
-                  src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=900"
-                  alt="Equipe GSV"
+                  src={`${import.meta.env.BASE_URL}about/gsv-office.png`}
+                  alt="Bureau GLOBAL SECURITY VISION"
                   className="h-[360px] w-full object-cover"
                 />
               </div>

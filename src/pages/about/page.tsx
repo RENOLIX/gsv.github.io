@@ -4,6 +4,7 @@ import { CheckCircle, Eye, LockKeyhole, Settings, ShieldCheck } from "lucide-rea
 import Footer from "@/components/Footer";
 import MapBlock from "@/components/MapBlock";
 import Navbar from "@/components/Navbar";
+import RealisationsMarquee from "@/components/RealisationsMarquee";
 
 const ABOUT_TEXT =
   "GLOBAL SECURITY VISION, fondee en 2020, est une entreprise specialisee dans les solutions de securite integrees. Nous offrons des services de videosurveillance, systemes anti-intrusion, alarmes incendie, automatisation, controle d'acces, et bien plus encore. Nous realisons un diagnostic pousse afin de determiner vos besoins et proposons des services parfaitement adaptes a chaque client pour ameliorer la securite de votre site. Grace a notre expertise et a notre approche innovante, nous protegeons vos espaces avec des solutions fiables et efficaces.";
@@ -30,12 +31,14 @@ export default function AboutPage() {
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <Navbar />
 
-      <section className="pt-32 pb-14 border-b border-gray-100">
+      <section className="relative overflow-hidden bg-gray-950 pt-28 pb-12 text-white">
+        <div className="absolute left-0 top-0 h-full w-1/2 bg-blue-500/20 blur-3xl" />
+        <div className="absolute right-0 top-8 h-32 w-32 rounded-full bg-red-500/25 blur-3xl" />
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">A propos</p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">GLOBAL SECURITY VISION</h1>
-            <p className="text-gray-500 text-lg max-w-2xl">Solutions de securite integrees, diagnostic pousse et accompagnement adapte a chaque client.</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-blue-300 mb-3">A propos</p>
+            <h1 className="text-3xl sm:text-4xl font-bold mb-3">GLOBAL SECURITY VISION</h1>
+            <p className="text-white/70 text-base max-w-2xl">Solutions de securite integrees, diagnostic pousse et accompagnement adapte a chaque client.</p>
           </motion.div>
         </div>
       </section>
@@ -62,8 +65,8 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="absolute -left-4 -top-4 h-full w-full rounded-2xl bg-gradient-to-br from-blue-500/20 to-red-500/20" />
                 <img
-                  src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=900"
-                  alt="Solutions de securite GSV"
+                  src={`${import.meta.env.BASE_URL}about/gsv-office.png`}
+                  alt="Bureau GLOBAL SECURITY VISION"
                   className="relative h-[420px] w-full rounded-2xl object-cover shadow-xl"
                 />
               </div>
@@ -71,6 +74,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <RealisationsMarquee />
 
       <section className="py-20 bg-gray-50 border-y border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
