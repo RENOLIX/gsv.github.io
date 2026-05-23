@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import FaqAccordion from "@/components/FaqAccordion";
 import Footer from "@/components/Footer";
+import MapBlock from "@/components/MapBlock";
 import Navbar from "@/components/Navbar";
 import PartnersMarquee from "@/components/PartnersMarquee";
 
@@ -65,25 +66,18 @@ export default function Index() {
 
       <section className="relative min-h-[760px] overflow-hidden bg-gray-950 pt-40 pb-24">
         <video
-          className="absolute inset-0 h-full w-full object-cover md:hidden"
-          src={`${import.meta.env.BASE_URL}hero/gsv-hero-mobile.mp4`}
+          className="absolute inset-0 h-full w-full object-cover"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
+          poster={`${import.meta.env.BASE_URL}brand/gsv-logo.png`}
           aria-hidden="true"
-        />
-        <video
-          className="absolute inset-0 hidden h-full w-full object-cover md:block"
-          src={`${import.meta.env.BASE_URL}hero/gsv-hero.mp4`}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-        />
+        >
+          <source src={`${import.meta.env.BASE_URL}hero/gsv-hero-mobile.mp4`} media="(max-width: 767px)" type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}hero/gsv-hero.mp4`} media="(min-width: 768px)" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-gray-950/88 via-gray-950/55 to-gray-950/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-950/55 via-transparent to-gray-950/45" />
         <div className="absolute -bottom-1 left-0 right-0 h-28 bg-white" style={{ clipPath: "polygon(0 54%, 12% 46%, 25% 60%, 41% 42%, 58% 55%, 74% 36%, 88% 48%, 100% 30%, 100% 100%, 0 100%)" }} />
@@ -109,6 +103,33 @@ export default function Index() {
               ))}
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="relative min-h-[440px]">
+            <div className="lg:absolute lg:right-0 lg:top-0 lg:w-[56%]">
+              <div className="border-t-4 border-blue-500 border-r-4 border-r-red-500 shadow-xl shadow-gray-200/80">
+                <img
+                  src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=900"
+                  alt="Equipe GSV"
+                  className="h-[360px] w-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="relative z-10 mt-[-60px] lg:mt-16 lg:w-[56%] border-l-4 border-blue-500 bg-white p-7 sm:p-10 shadow-2xl shadow-gray-200">
+              <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">A propos de nous</p>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">GLOBAL SECURITY VISION</h2>
+              <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                Fondee en 2020, GLOBAL SECURITY VISION est specialisee dans les solutions de securite integrees. Nous realisons un diagnostic pousse afin de proposer des services adaptes a chaque client.
+              </p>
+              <Link to="/about" className="gsv-gradient-button inline-flex items-center rounded-2xl px-6 py-3 text-sm font-semibold">
+                Lire plus
+                <ArrowRight size={15} className="ml-2" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -144,6 +165,8 @@ export default function Index() {
       </section>
 
       <PartnersMarquee />
+
+      <MapBlock />
 
       <section className="py-24 bg-gray-50 border-y border-gray-100">
         <div className="max-w-6xl mx-auto px-6">

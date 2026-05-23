@@ -3,15 +3,16 @@ import { motion } from "motion/react";
 import { CheckCircle, Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 import { toast } from "sonner";
 import Footer from "@/components/Footer";
+import MapBlock from "@/components/MapBlock";
 import Navbar from "@/components/Navbar";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
 const CONTACT_INFO = [
-  { icon: Phone, title: "Telephone", lines: ["+213 555 000 000", "+213 21 00 00 00"] },
-  { icon: Mail, title: "Email", lines: ["contact@gsv-securite.com", "devis@gsv-securite.com"] },
-  { icon: MapPin, title: "Adresse", lines: ["123 Avenue de la Securite", "Alger, Algerie"] },
+  { icon: Phone, title: "Telephone", lines: ["0559 40 08 55"] },
+  { icon: Mail, title: "Email", lines: ["contact.gsv.dz@gmail.com"] },
+  { icon: MapPin, title: "Adresse", lines: ["GLOBAL SECURITY VISION", "Algerie"] },
   { icon: Clock, title: "Horaires", lines: ["Lun - Ven : 08:00 - 18:00", "Sam : 08:00 - 13:00"] },
 ];
 
@@ -90,7 +91,7 @@ export default function ContactPage() {
                     <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Email <span className="text-red-500">*</span></label><Input type="email" placeholder="exemple@email.com" value={form.email} onChange={(e) => set("email", e.target.value)} /></div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Telephone</label><Input type="tel" placeholder="+213 555 000 000" value={form.phone} onChange={(e) => set("phone", e.target.value)} /></div>
+                    <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Telephone</label><Input type="tel" placeholder="0559 40 08 55" value={form.phone} onChange={(e) => set("phone", e.target.value)} /></div>
                     <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Service concerne</label><Select onValueChange={(v) => set("service", v)}><SelectTrigger><SelectValue placeholder="Selectionner un service..." /></SelectTrigger><SelectContent>{SERVICES_LIST.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}</SelectContent></Select></div>
                   </div>
                   <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Description du besoin <span className="text-red-500">*</span></label><Textarea placeholder="Decrivez votre projet..." rows={5} value={form.message} onChange={(e) => set("message", e.target.value)} className="resize-none" /></div>
@@ -104,6 +105,7 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </div>
+      <MapBlock compact />
       <Footer />
     </div>
   );

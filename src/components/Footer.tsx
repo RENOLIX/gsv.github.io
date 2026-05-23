@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <img src={`${import.meta.env.BASE_URL}brand/gsv-logo.png`} alt="GSV Global Security Vision" className="gsv-logo-mark h-24 w-64 object-contain" />
+              <img src={`${import.meta.env.BASE_URL}brand/gsv-logo.png`} alt="GSV Global Security Vision" className="gsv-logo-mark -ml-8 h-24 w-64 object-contain" />
             </Link>
             <p className="text-sm text-gray-500 leading-relaxed">
               Votre partenaire de confiance pour des solutions de securite completes. Expertise, fiabilite et protection 24/7.
@@ -54,15 +54,15 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2.5">
                 <MapPin size={14} className="text-gray-400 mt-0.5 shrink-0" />
-                <span className="text-sm text-gray-500">123 Avenue de la Securite, Alger, Algerie</span>
+                <span className="text-sm text-gray-500">GLOBAL SECURITY VISION, Algerie</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone size={14} className="text-gray-400 shrink-0" />
-                <a href="tel:+213555000000" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">+213 555 000 000</a>
+                <a href="tel:0559400855" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">0559 40 08 55</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={14} className="text-gray-400 shrink-0" />
-                <a href="mailto:contact@gsv-securite.com" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">contact@gsv-securite.com</a>
+                <a href="mailto:contact.gsv.dz@gmail.com" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">contact.gsv.dz@gmail.com</a>
               </li>
             </ul>
           </div>
