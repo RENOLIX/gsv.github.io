@@ -65,7 +65,17 @@ export default function Index() {
 
       <section className="relative min-h-[760px] overflow-hidden bg-gray-950 pt-40 pb-24">
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover md:hidden"
+          src={`${import.meta.env.BASE_URL}hero/gsv-hero-mobile.mp4`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        />
+        <video
+          className="absolute inset-0 hidden h-full w-full object-cover md:block"
           src={`${import.meta.env.BASE_URL}hero/gsv-hero.mp4`}
           autoPlay
           muted
