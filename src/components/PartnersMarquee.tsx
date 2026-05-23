@@ -9,6 +9,34 @@ const PARTNERS = [
 
 const TRACK = [...PARTNERS, ...PARTNERS];
 
+function PartnerLogo({ name, img }: { name: string; img: string }) {
+  const initials = name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 3)
+    .toUpperCase();
+
+  return (
+    <div className="shrink-0 h-20 w-44 rounded-xl border border-gray-200 bg-white shadow-sm flex items-center justify-center px-5">
+      <img
+        src={img}
+        alt={name}
+        className="max-h-12 max-w-32 object-contain"
+        onError={(event) => {
+          event.currentTarget.style.display = "none";
+          const fallback = event.currentTarget.nextElementSibling;
+          fallback?.classList.remove("hidden");
+        }}
+      />
+      <div className="hidden text-center">
+        <div className="text-sm font-bold text-gray-900">{initials}</div>
+        <div className="mt-0.5 text-[10px] font-medium text-gray-400 leading-tight">{name}</div>
+      </div>
+    </div>
+  );
+}
+
 export default function PartnersMarquee() {
   return (
     <section className="py-20 bg-white border-y border-gray-100 overflow-hidden">
@@ -24,7 +52,7 @@ export default function PartnersMarquee() {
         <div className="pointer-events-none absolute right-0 top-0 h-full w-28 z-10" style={{ background: "linear-gradient(to left, white, transparent)" }} />
         <div className="flex gap-6 marquee-track items-center">
           {TRACK.map((partner, i) => (
-            <img key={`${partner.name}-${i}`} src={partner.img} alt={partner.name} className="shrink-0 h-14 w-auto object-contain" />
+            <PartnerLogo key={`${partner.name}-${i}`} name={partner.name} img={partner.img} />
           ))}
         </div>
       </div>
