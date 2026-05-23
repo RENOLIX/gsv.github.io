@@ -1,10 +1,10 @@
 const PARTNERS = [
-  { name: "Aeroport d'Alger", img: "partners/aeroport-alger.svg" },
-  { name: "CMTB", img: "partners/cmtb.svg" },
-  { name: "Kheyar Superette", img: "partners/kheyar-superette.svg" },
-  { name: "Casa Medica Shop", img: "partners/casa-medica.svg" },
-  { name: "Universite de Boumerdes", img: "partners/universite-boumerdes.svg" },
-  { name: "GSV Partner", img: "partners/gsv-partner.svg" },
+  { name: "Aeroport d'Alger", img: "partners/aeroport-alger.png" },
+  { name: "CMTB", img: "partners/cmtb.png" },
+  { name: "Kheyar Superette", img: "partners/kheyar-superette.png" },
+  { name: "Casa Medica Shop", img: "partners/casa-medica.png" },
+  { name: "Universite de Boumerdes", img: "partners/universite-boumerdes.png" },
+  { name: "GEMAPRO", img: "partners/gemapro.png" },
 ];
 
 const TRACK = [...PARTNERS, ...PARTNERS];
@@ -18,11 +18,11 @@ function PartnerLogo({ name, img }: { name: string; img: string }) {
     .toUpperCase();
 
   return (
-    <div className="shrink-0 h-20 w-44 rounded-xl border border-gray-200 bg-white shadow-sm flex items-center justify-center px-5">
+    <div className="shrink-0 h-24 w-56 flex items-center justify-center">
       <img
         src={`${import.meta.env.BASE_URL}${img}`}
         alt={name}
-        className="max-h-12 max-w-32 object-contain"
+        className="max-h-24 max-w-56 object-contain"
         onError={(event) => {
           event.currentTarget.style.display = "none";
           const fallback = event.currentTarget.nextElementSibling;
