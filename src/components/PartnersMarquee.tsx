@@ -18,11 +18,11 @@ function PartnerLogo({ name, img }: { name: string; img: string }) {
     .toUpperCase();
 
   return (
-    <div className="shrink-0 h-24 w-56 flex items-center justify-center">
+    <div className="shrink-0 h-20 w-36 flex items-center justify-center sm:h-24 sm:w-56">
       <img
         src={`${import.meta.env.BASE_URL}${img}`}
         alt={name}
-        className="max-h-24 max-w-56 object-contain"
+        className="max-h-20 max-w-36 object-contain sm:max-h-24 sm:max-w-56"
         onError={(event) => {
           event.currentTarget.style.display = "none";
           const fallback = event.currentTarget.nextElementSibling;
@@ -48,9 +48,9 @@ export default function PartnersMarquee() {
         </p>
       </div>
       <div className="relative">
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-28 z-10" style={{ background: "linear-gradient(to right, white, transparent)" }} />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-28 z-10" style={{ background: "linear-gradient(to left, white, transparent)" }} />
-        <div className="flex gap-6 marquee-track items-center">
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-12 sm:w-28 z-10" style={{ background: "linear-gradient(to right, white, transparent)" }} />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-12 sm:w-28 z-10" style={{ background: "linear-gradient(to left, white, transparent)" }} />
+        <div className="flex gap-2 sm:gap-6 marquee-track items-center">
           {TRACK.map((partner, i) => (
             <PartnerLogo key={`${partner.name}-${i}`} name={partner.name} img={partner.img} />
           ))}
