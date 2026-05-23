@@ -1,7 +1,22 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "motion/react";
-import { ArrowRight, Camera, CheckCircle, Flame, Home, KeyRound, Laptop, Network, Phone, ScanLine, ShieldAlert, ShieldOff, Star, Volume2 } from "lucide-react";
+import {
+  ArrowRight,
+  Camera,
+  CheckCircle,
+  Flame,
+  Home,
+  KeyRound,
+  Laptop,
+  Network,
+  Phone,
+  ScanLine,
+  ShieldAlert,
+  ShieldOff,
+  Star,
+  Volume2,
+} from "lucide-react";
 import FaqAccordion from "@/components/FaqAccordion";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -47,48 +62,69 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <Navbar />
-      <section className="pt-36 pb-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <div className="inline-flex items-center gap-2 bg-blue-50 rounded-full px-4 py-1.5 mb-6 ring-1 ring-blue-100">
-                <span className="gsv-red-dot w-1.5 h-1.5 rounded-full" />
-                <span className="text-xs font-medium text-gray-600">Fourniture · Pose · Maintenance</span>
-              </div>
-              <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight text-gray-900 mb-5">Solutions de securite completes pour votre entreprise</h1>
-              <p className="text-lg text-gray-500 leading-relaxed mb-8 max-w-lg">GSV accompagne entreprises, administrations et particuliers avec des systemes de securite fiables et durables. Expertise certifiee depuis 2009.</p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Link to="/contact" className="gsv-gradient-button inline-flex items-center justify-center px-7 py-3 rounded-2xl text-sm font-semibold cursor-pointer transition-all duration-200">Demander un devis gratuit</Link>
-                <Link to="/services" className="gsv-outline-button inline-flex items-center justify-center px-7 py-3 rounded-2xl text-sm font-semibold cursor-pointer transition-all duration-200">Voir nos services</Link>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 pt-10 border-t border-gray-100">
-                {STATS.map((s) => <div key={s.label}><div className="text-2xl font-bold text-gray-900">{s.value}</div><div className="text-xs text-gray-500 mt-0.5">{s.label}</div></div>)}
-              </div>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.15 }} className="relative pb-12">
-              <div className="relative overflow-hidden rounded-[28px] shadow-2xl shadow-blue-950/20">
-                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=900" alt="Cameras de surveillance GSV" className="gsv-hero-image w-full h-[500px] object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/25 via-transparent to-red-500/20" />
-                <div className="gsv-hero-wave" />
-              </div>
-              <div className="absolute bottom-4 -left-5 bg-white rounded-xl shadow-lg border border-gray-100 p-4 flex items-center gap-3">
-                <div className="gsv-accent-icon w-10 h-10 rounded-lg flex items-center justify-center shrink-0"><CheckCircle size={20} /></div>
-                <div><div className="text-sm font-semibold text-gray-900">Certifie & Agree</div><div className="text-xs text-gray-500">Normes EN 50131</div></div>
-              </div>
-            </motion.div>
-          </div>
+
+      <section className="relative min-h-[760px] overflow-hidden bg-gray-950 pt-40 pb-24">
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src={`${import.meta.env.BASE_URL}hero/gsv-hero.mp4`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950/88 via-gray-950/55 to-gray-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-950/55 via-transparent to-gray-950/45" />
+        <div className="absolute -bottom-1 left-0 right-0 h-28 bg-white" style={{ clipPath: "polygon(0 54%, 12% 46%, 25% 60%, 41% 42%, 58% 55%, 74% 36%, 88% 48%, 100% 30%, 100% 100%, 0 100%)" }} />
+
+        <div className="relative max-w-6xl mx-auto px-6">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 bg-white/12 rounded-full px-4 py-1.5 mb-6 ring-1 ring-white/20 backdrop-blur-md">
+              <span className="gsv-red-dot w-1.5 h-1.5 rounded-full" />
+              <span className="text-xs font-semibold text-white/85">Fourniture - Pose - Maintenance</span>
+            </div>
+            <h1 className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight text-white mb-5">Solutions de securite completes pour votre entreprise</h1>
+            <p className="text-lg text-white/76 leading-relaxed mb-8 max-w-xl">GSV accompagne entreprises, administrations et particuliers avec des systemes de securite fiables et durables. Expertise certifiee depuis 2009.</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link to="/contact" className="gsv-gradient-button inline-flex items-center justify-center px-7 py-3 rounded-2xl text-sm font-semibold cursor-pointer transition-all duration-200">Demander un devis gratuit</Link>
+              <Link to="/services" className="inline-flex items-center justify-center px-7 py-3 rounded-2xl text-sm font-semibold cursor-pointer transition-all duration-200 border border-white/35 bg-white/12 text-white backdrop-blur-md hover:bg-white/20">Voir nos services</Link>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 pt-10 border-t border-white/18">
+              {STATS.map((s) => (
+                <div key={s.label}>
+                  <div className="text-2xl font-bold text-white">{s.value}</div>
+                  <div className="text-xs text-white/65 mt-0.5">{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
+
       <section className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
-          <FadeIn><div className="mb-12"><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Nos Services</p><h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">10 domaines d'expertise securite & IT</h2><p className="text-gray-500 max-w-xl">De la videosurveillance au materiel bureautique, nous couvrons l'ensemble des besoins en securite electronique et infrastructure informatique.</p></div></FadeIn>
+          <FadeIn>
+            <div className="mb-12">
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Nos Services</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">10 domaines d'expertise securite & IT</h2>
+              <p className="text-gray-500 max-w-xl">De la videosurveillance au materiel bureautique, nous couvrons l'ensemble des besoins en securite electronique et infrastructure informatique.</p>
+            </div>
+          </FadeIn>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map((s, i) => (
               <FadeIn key={s.title} delay={i * 0.05}>
                 <Link to="/services" className="group block h-full">
                   <div className="h-full rounded-2xl overflow-hidden border border-gray-200 bg-white hover:border-gray-300 hover:shadow-md transition-all duration-200">
                     <div className="overflow-hidden h-44"><img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" /></div>
-                    <div className="p-5"><div className="flex items-center gap-2.5 mb-2"><div className="gsv-accent-icon w-8 h-8 rounded-lg flex items-center justify-center shrink-0 group-hover:text-red-600 transition-colors"><s.icon size={15} /></div><h3 className="font-semibold text-gray-900 text-sm">{s.title}</h3></div><p className="text-xs text-gray-500 leading-relaxed">{s.desc}</p><div className="flex items-center gap-1 mt-3 text-xs font-medium text-blue-600 group-hover:text-red-600 transition-colors">En savoir plus <ArrowRight size={11} /></div></div>
+                    <div className="p-5">
+                      <div className="flex items-center gap-2.5 mb-2">
+                        <div className="gsv-accent-icon w-8 h-8 rounded-lg flex items-center justify-center shrink-0 group-hover:text-red-600 transition-colors"><s.icon size={15} /></div>
+                        <h3 className="font-semibold text-gray-900 text-sm">{s.title}</h3>
+                      </div>
+                      <p className="text-xs text-gray-500 leading-relaxed">{s.desc}</p>
+                      <div className="flex items-center gap-1 mt-3 text-xs font-medium text-blue-600 group-hover:text-red-600 transition-colors">En savoir plus <ArrowRight size={11} /></div>
+                    </div>
                   </div>
                 </Link>
               </FadeIn>
@@ -96,30 +132,72 @@ export default function Index() {
           </div>
         </div>
       </section>
+
       <PartnersMarquee />
+
       <section className="py-24 bg-gray-50 border-y border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <FadeIn><div><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Pourquoi GSV</p><h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-5">Une expertise reconnue depuis 15 ans</h2><p className="text-gray-500 leading-relaxed mb-8">Fondee en 2009, GSV s'est imposee comme reference nationale en solutions de securite integrees. Plus de 1 200 projets realises a travers le pays.</p><ul className="space-y-3">{["Techniciens certifies par les fabricants", "Materiel de marques internationales", "Etude technique et devis gratuits", "Maintenance preventive et corrective 24/7", "Garantie pieces et main-d'oeuvre"].map((item) => <li key={item} className="flex items-center gap-3"><CheckCircle size={16} className="text-gray-900 shrink-0" /><span className="text-sm text-gray-600">{item}</span></li>)}</ul><div className="mt-8"><Link to="/about" className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl text-sm font-semibold cursor-pointer transition-all duration-200 bg-white border border-gray-200">A propos de GSV <ArrowRight size={14} /></Link></div></div></FadeIn>
+            <FadeIn>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Pourquoi GSV</p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-5">Une expertise reconnue depuis 15 ans</h2>
+                <p className="text-gray-500 leading-relaxed mb-8">Fondee en 2009, GSV s'est imposee comme reference nationale en solutions de securite integrees. Plus de 1 200 projets realises a travers le pays.</p>
+                <ul className="space-y-3">
+                  {["Techniciens certifies par les fabricants", "Materiel de marques internationales", "Etude technique et devis gratuits", "Maintenance preventive et corrective 24/7", "Garantie pieces et main-d'oeuvre"].map((item) => (
+                    <li key={item} className="flex items-center gap-3"><CheckCircle size={16} className="text-gray-900 shrink-0" /><span className="text-sm text-gray-600">{item}</span></li>
+                  ))}
+                </ul>
+                <div className="mt-8"><Link to="/about" className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl text-sm font-semibold cursor-pointer transition-all duration-200 bg-white border border-gray-200">A propos de GSV <ArrowRight size={14} /></Link></div>
+              </div>
+            </FadeIn>
             <FadeIn delay={0.1}><div className="rounded-2xl overflow-hidden"><img src="https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800" alt="Installation camera" className="w-full h-[420px] object-cover" /></div></FadeIn>
           </div>
         </div>
       </section>
+
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn><div className="mb-12"><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Temoignages</p><h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Ce que disent nos clients</h2></div></FadeIn>
-          <div className="grid md:grid-cols-3 gap-6">{TESTIMONIALS.map((t, i) => <FadeIn key={t.name} delay={i * 0.08}><div className="border border-gray-200 rounded-xl p-6 bg-white"><div className="flex gap-0.5 mb-4">{Array.from({ length: 5 }).map((_, j) => <Star key={j} size={13} className="fill-yellow-400 text-yellow-400" />)}</div><p className="text-sm text-gray-600 leading-relaxed mb-5">{`"${t.text}"`}</p><div><div className="text-sm font-semibold text-gray-900">{t.name}</div><div className="text-xs text-gray-400 mt-0.5">{t.role}</div></div></div></FadeIn>)}</div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {TESTIMONIALS.map((t, i) => (
+              <FadeIn key={t.name} delay={i * 0.08}>
+                <div className="border border-gray-200 rounded-xl p-6 bg-white">
+                  <div className="flex gap-0.5 mb-4">{Array.from({ length: 5 }).map((_, j) => <Star key={j} size={13} className="fill-yellow-400 text-yellow-400" />)}</div>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-5">{`"${t.text}"`}</p>
+                  <div><div className="text-sm font-semibold text-gray-900">{t.name}</div><div className="text-xs text-gray-400 mt-0.5">{t.role}</div></div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
+
       <section className="py-24 bg-white border-y border-gray-100">
-        <div className="max-w-6xl mx-auto px-6"><div className="grid lg:grid-cols-2 gap-16 items-start"><FadeIn><div><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">FAQ</p><h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Questions ?</h2><p className="text-gray-500 text-sm leading-relaxed max-w-xs">Obtenez des reponses claires sur nos installations de securite et notre support technique.</p></div></FadeIn><FadeIn delay={0.1}><FaqAccordion /></FadeIn></div></div>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <FadeIn><div><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">FAQ</p><h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Questions ?</h2><p className="text-gray-500 text-sm leading-relaxed max-w-xs">Obtenez des reponses claires sur nos installations de securite et notre support technique.</p></div></FadeIn>
+            <FadeIn delay={0.1}><FaqAccordion /></FadeIn>
+          </div>
+        </div>
       </section>
+
       <section className="py-20 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0 opacity-30" style={{ background: "radial-gradient(circle at 25% 35%, rgba(11,143,255,0.45), transparent 28%), radial-gradient(circle at 78% 45%, rgba(255,31,45,0.35), transparent 24%)" }} />
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <FadeIn><div className="relative"><h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Pret a securiser votre site ?</h2><p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">Contactez-nous pour une etude gratuite et un devis personnalise adapte a vos besoins.</p><div className="flex flex-col sm:flex-row gap-3 justify-center"><Link to="/contact" className="inline-flex items-center justify-center px-8 py-3 rounded-2xl text-sm font-semibold bg-white text-gray-950"><Phone size={16} className="mr-2" />Nous contacter</Link><Link to="/services" className="inline-flex items-center justify-center px-8 py-3 rounded-2xl text-sm font-semibold border border-white/20 text-white">Voir les services</Link></div></div></FadeIn>
+          <FadeIn>
+            <div className="relative">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Pret a securiser votre site ?</h2>
+              <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">Contactez-nous pour une etude gratuite et un devis personnalise adapte a vos besoins.</p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Link to="/contact" className="inline-flex items-center justify-center px-8 py-3 rounded-2xl text-sm font-semibold bg-white text-gray-950"><Phone size={16} className="mr-2" />Nous contacter</Link>
+                <Link to="/services" className="inline-flex items-center justify-center px-8 py-3 rounded-2xl text-sm font-semibold border border-white/20 text-white">Voir les services</Link>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
+
       <Footer />
     </div>
   );
