@@ -21,7 +21,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <Navbar />
-      <div className="pt-28 pb-14 border-b border-gray-100">
+      <div className="pt-32 pb-14 border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">A Propos</p>
@@ -42,7 +42,7 @@ export default function AboutPage() {
                 <p>Aujourd'hui, GSV couvre 9 domaines d'expertise et s'appuie sur les meilleures marques mondiales pour offrir des solutions durables, evolutives et parfaitement adaptees.</p>
               </div>
               <ul className="mt-6 space-y-2.5">
-                {["Partenaire officiel Hikvision, Bosch, Dahua, Honeywell", "Certifie CNPE - conformite normes EN 50131", "Couverture nationale : 48 wilayas"].map((item) => <li key={item} className="flex items-center gap-3"><CheckCircle size={15} className="text-gray-700 shrink-0" /><span className="text-sm text-gray-600">{item}</span></li>)}
+                {["Partenaire officiel Hikvision, Bosch, Dahua, Honeywell", "Certifie CNPE - conformite normes EN 50131", "Couverture nationale : 48 wilayas"].map((item) => <li key={item} className="flex items-center gap-3"><CheckCircle size={15} className="text-blue-600 shrink-0" /><span className="text-sm text-gray-600">{item}</span></li>)}
               </ul>
             </div>
           </FadeIn>
@@ -53,7 +53,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn><div className="mb-12"><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Nos Valeurs</p><h2 className="text-3xl font-bold text-gray-900">Ce qui nous guide</h2></div></FadeIn>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {VALUES.map((v, i) => <FadeIn key={v.title} delay={i * 0.07}><div className="bg-white rounded-xl border border-gray-200 p-6"><div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-4"><v.icon size={18} className="text-gray-700" /></div><h3 className="font-semibold text-gray-900 mb-2">{v.title}</h3><p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p></div></FadeIn>)}
+            {VALUES.map((v, i) => <FadeIn key={v.title} delay={i * 0.07}><div className="bg-white rounded-xl border border-gray-200 p-6"><div className="gsv-accent-icon w-10 h-10 rounded-lg flex items-center justify-center mb-4"><v.icon size={18} /></div><h3 className="font-semibold text-gray-900 mb-2">{v.title}</h3><p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p></div></FadeIn>)}
           </div>
         </div>
       </section>

@@ -40,7 +40,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <Navbar />
-      <div className="pt-28 pb-14 border-b border-gray-100">
+      <div className="pt-32 pb-14 border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Contact & Devis</p>
@@ -55,7 +55,7 @@ export default function ContactPage() {
             <div className="border border-gray-200 rounded-xl p-8 bg-white">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
-                  <div className="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mb-5"><CheckCircle size={28} className="text-green-600" /></div>
+                  <div className="gsv-accent-icon w-14 h-14 rounded-full flex items-center justify-center mb-5"><CheckCircle size={28} /></div>
                   <h3 className="text-xl font-bold mb-2 text-gray-900">Message envoye !</h3>
                   <p className="text-gray-500 text-sm max-w-xs">Merci pour votre demande. Notre equipe vous contactera dans les meilleurs delais.</p>
                   <button className="mt-7 inline-flex items-center justify-center px-6 py-2.5 rounded-xl text-sm font-semibold cursor-pointer bg-white border border-gray-200 shadow-sm" onClick={() => { setSubmitted(false); setForm({ name: "", company: "", email: "", phone: "", service: "", message: "" }); }}>Nouvelle demande</button>
@@ -73,13 +73,13 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Service concerne</label><Select onValueChange={(v) => set("service", v)}><SelectTrigger><SelectValue placeholder="Selectionner un service..." /></SelectTrigger><SelectContent>{SERVICES_LIST.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}</SelectContent></Select></div>
                   <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Description du besoin <span className="text-red-500">*</span></label><Textarea placeholder="Decrivez votre projet..." rows={5} value={form.message} onChange={(e) => set("message", e.target.value)} className="resize-none" /></div>
-                  <button type="submit" disabled={loading} className="w-full inline-flex items-center justify-center h-11 px-6 rounded-xl text-sm font-semibold disabled:opacity-60 cursor-pointer transition-all duration-200 bg-gray-950 text-white">{loading ? "Envoi en cours..." : <><Send size={15} className="mr-2" />Envoyer la demande</>}</button>
+                  <button type="submit" disabled={loading} className="gsv-gradient-button w-full inline-flex items-center justify-center h-11 px-6 rounded-xl text-sm font-semibold disabled:opacity-60 cursor-pointer transition-all duration-200">{loading ? "Envoi en cours..." : <><Send size={15} className="mr-2" />Envoyer la demande</>}</button>
                 </form>
               )}
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }} className="space-y-3">
-            {CONTACT_INFO.map((info) => <div key={info.title} className="border border-gray-200 rounded-xl p-5 flex items-start gap-4 bg-white"><div className="w-9 h-9 bg-gray-100 rounded-lg flex items-center justify-center shrink-0"><info.icon size={16} className="text-gray-600" /></div><div><p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">{info.title}</p>{info.lines.map((line) => <p key={line} className="text-sm font-medium text-gray-800">{line}</p>)}</div></div>)}
+            {CONTACT_INFO.map((info) => <div key={info.title} className="border border-gray-200 rounded-xl p-5 flex items-start gap-4 bg-white"><div className="gsv-accent-icon w-9 h-9 rounded-lg flex items-center justify-center shrink-0"><info.icon size={16} /></div><div><p className="text-xs font-medium text-gray-400 uppercase tracking-wider mb-1">{info.title}</p>{info.lines.map((line) => <p key={line} className="text-sm font-medium text-gray-800">{line}</p>)}</div></div>)}
           </motion.div>
         </div>
       </div>

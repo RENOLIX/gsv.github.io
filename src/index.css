@@ -82,3 +82,35 @@
 .marquee-track:hover {
   animation-play-state: paused;
 }
+
+.gsv-gradient-button {
+  background: linear-gradient(135deg, #0b8fff 0%, #111827 54%, #ff1f2d 100%);
+  color: white;
+  box-shadow: 0 12px 32px rgba(11, 143, 255, 0.18), 0 10px 28px rgba(255, 31, 45, 0.16);
+}
+
+.gsv-outline-button {
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(135deg, rgba(11, 143, 255, 0.55), rgba(255, 31, 45, 0.45)) border-box;
+  border: 1px solid transparent;
+  color: #111827;
+}
+
+.gsv-accent-icon {
+  background: linear-gradient(135deg, rgba(11, 143, 255, 0.14), rgba(255, 31, 45, 0.12));
+  color: #0b66d8;
+}
+
+.gsv-red-dot {
+  background: #ff1f2d;
+  box-shadow: 0 0 18px rgba(255, 31, 45, 0.55);
+}
+
+.gsv-blue-dot {
+  background: #0b8fff;
+  box-shadow: 0 0 18px rgba(11, 143, 255, 0.45);
+}
+
+.gsv-logo-mark {
+  filter: drop-shadow(0 10px 24px rgba(11, 143, 255, 0.18)) drop-shadow(0 8px 18px rgba(255, 31, 45, 0.12));
+}

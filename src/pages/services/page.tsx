@@ -122,12 +122,12 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <Navbar />
 
-      <section className="pt-28 pb-16 bg-white border-b border-gray-100">
+      <section className="pt-32 pb-16 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-[1fr_420px] gap-12 items-center">
             <motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
-              <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-1.5 mb-6">
-                <ShieldCheck size={14} className="text-gray-700" />
+              <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-1.5 mb-6 ring-1 ring-blue-100">
+                <ShieldCheck size={14} className="text-blue-600" />
                 <span className="text-xs font-semibold text-gray-600">Fourniture · Pose · Maintenance</span>
               </div>
               <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Nos Services</p>
@@ -138,11 +138,11 @@ export default function ServicesPage() {
                 GSV accompagne les entreprises, commerces, institutions et particuliers avec des systemes fiables, evolutifs et faciles a utiliser au quotidien.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 mt-8">
-                <Link to="/contact" className="inline-flex items-center justify-center rounded-2xl bg-gray-950 px-7 py-3 text-sm font-semibold text-white shadow-sm">
+                <Link to="/contact" className="gsv-gradient-button inline-flex items-center justify-center rounded-2xl px-7 py-3 text-sm font-semibold">
                   Demander un devis
                   <ArrowRight size={16} className="ml-2" />
                 </Link>
-                <a href="#services-grid" className="inline-flex items-center justify-center rounded-2xl border border-gray-200 bg-white px-7 py-3 text-sm font-semibold text-gray-900">
+                <a href="#services-grid" className="gsv-outline-button inline-flex items-center justify-center rounded-2xl px-7 py-3 text-sm font-semibold">
                   Voir les services
                 </a>
               </div>
@@ -213,12 +213,12 @@ export default function ServicesPage() {
                     <p className="text-sm leading-relaxed text-gray-500">{service.description}</p>
                     <div className="mt-5 flex flex-wrap gap-2">
                       {service.features.map((feature) => (
-                        <span key={feature} className="rounded-md bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
+                        <span key={feature} className="rounded-md bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-blue-100">
                           {feature}
                         </span>
                       ))}
                     </div>
-                    <Link to="/contact" className="mt-6 inline-flex items-center text-sm font-semibold text-gray-950">
+                    <Link to="/contact" className="mt-6 inline-flex items-center text-sm font-semibold text-blue-600 group-hover:text-red-600">
                       Demander ce service
                       <ArrowRight size={15} className="ml-1 transition-transform group-hover:translate-x-1" />
                     </Link>
@@ -247,7 +247,7 @@ export default function ServicesPage() {
               {PROCESS.map((step, index) => (
                 <FadeIn key={step} delay={index * 0.05}>
                   <div className="h-full rounded-xl border border-gray-200 bg-white p-4">
-                    <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-lg bg-gray-950 text-sm font-bold text-white">
+                    <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-lg gsv-gradient-button text-sm font-bold text-white">
                       {index + 1}
                     </div>
                     <p className="text-sm font-semibold text-gray-900 leading-snug">{step}</p>
@@ -259,9 +259,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-950">
+      <section className="py-20 bg-gray-950 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-35" style={{ background: "radial-gradient(circle at 18% 40%, rgba(11,143,255,0.55), transparent 30%), radial-gradient(circle at 82% 35%, rgba(255,31,45,0.42), transparent 24%)" }} />
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+          <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-white/45 mb-3">Devis gratuit</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">Vous avez un site a securiser ?</h2>

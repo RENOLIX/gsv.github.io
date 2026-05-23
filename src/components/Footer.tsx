@@ -22,8 +22,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <img src="https://hercules-cdn.com/file_y2M8OIO0ft489F10wIOm8fT3" alt="GSV" className="w-7 h-7 object-contain" />
-              <span className="font-bold text-gray-900">GSV</span>
+              <img src={`${import.meta.env.BASE_URL}brand/gsv-logo.png`} alt="GSV Global Security Vision" className="gsv-logo-mark h-16 w-40 object-contain" />
             </Link>
             <p className="text-sm text-gray-500 leading-relaxed">
               Votre partenaire de confiance pour des solutions de securite completes. Expertise, fiabilite et protection 24/7.

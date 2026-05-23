@@ -26,27 +26,23 @@ export default function Navbar() {
     ? {
         backdropFilter: "blur(28px) saturate(180%)",
         WebkitBackdropFilter: "blur(28px) saturate(180%)",
-        background: "rgba(255,255,255,0.72)",
+        background: "rgba(255,255,255,0.78)",
         borderBottom: "1px solid rgba(255,255,255,0.85)",
-        boxShadow: "0 4px 32px rgba(80,60,180,0.10)",
+        boxShadow: "0 4px 32px rgba(11,143,255,0.10), 0 2px 20px rgba(255,31,45,0.06)",
       }
     : {
         backdropFilter: "blur(18px) saturate(160%)",
         WebkitBackdropFilter: "blur(18px) saturate(160%)",
-        background: "rgba(255,255,255,0.45)",
+        background: "rgba(255,255,255,0.58)",
         borderBottom: "1px solid rgba(255,255,255,0.55)",
       };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style={headerStyle}>
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-3">
-            <img src="https://hercules-cdn.com/file_y2M8OIO0ft489F10wIOm8fT3" alt="GSV Logo" className="w-8 h-8 object-contain" />
-            <div>
-              <span className="text-lg font-bold tracking-tight text-gray-900">GSV</span>
-              <span className="hidden sm:inline text-xs text-gray-500 ml-2 font-normal">Global Security Vision</span>
-            </div>
+        <div className="flex items-center justify-between h-20">
+          <Link to="/" className="flex items-center">
+            <img src={`${import.meta.env.BASE_URL}brand/gsv-logo.png`} alt="GSV Global Security Vision" className="gsv-logo-mark h-14 w-36 object-contain sm:h-16 sm:w-44" />
           </Link>
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
@@ -56,7 +52,7 @@ export default function Navbar() {
             ))}
           </nav>
           <div className="hidden md:block">
-            <Link to="/contact" className="inline-flex items-center px-5 py-2 text-sm font-semibold rounded-xl cursor-pointer transition-all duration-200" style={{ backdropFilter: "blur(20px) saturate(180%)", WebkitBackdropFilter: "blur(20px) saturate(180%)", background: "rgba(255,255,255,0.75)", border: "1px solid rgba(255,255,255,0.90)", boxShadow: "0 2px 16px rgba(80,60,180,0.14), inset 0 1px 0 rgba(255,255,255,0.9)", color: "#1a1a2e" }}>
+            <Link to="/contact" className="gsv-gradient-button inline-flex items-center px-5 py-2 text-sm font-semibold rounded-xl cursor-pointer transition-all duration-200">
               Devis Gratuit
             </Link>
           </div>
@@ -74,7 +70,7 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Link to="/contact" onClick={() => setMenuOpen(false)} className="inline-flex justify-center items-center mt-2 px-5 py-2.5 text-sm font-semibold rounded-xl cursor-pointer transition-all duration-200" style={{ backdropFilter: "blur(20px) saturate(180%)", WebkitBackdropFilter: "blur(20px) saturate(180%)", background: "rgba(255,255,255,0.80)", border: "1px solid rgba(255,255,255,0.90)", boxShadow: "0 2px 16px rgba(80,60,180,0.14), inset 0 1px 0 rgba(255,255,255,0.9)", color: "#1a1a2e" }}>
+              <Link to="/contact" onClick={() => setMenuOpen(false)} className="gsv-gradient-button inline-flex justify-center items-center mt-2 px-5 py-2.5 text-sm font-semibold rounded-xl cursor-pointer transition-all duration-200">
                 Devis Gratuit
               </Link>
             </div>
