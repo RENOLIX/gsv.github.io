@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "motion/react";
-import { ArrowRight, Camera, CheckCircle, Flame, Home, KeyRound, Network, Phone, ScanLine, ShieldAlert, ShieldOff, Star, Volume2 } from "lucide-react";
+import { ArrowRight, Camera, CheckCircle, Flame, Home, KeyRound, Laptop, Network, Phone, ScanLine, ShieldAlert, ShieldOff, Star, Volume2 } from "lucide-react";
 import FaqAccordion from "@/components/FaqAccordion";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -16,6 +16,7 @@ const SERVICES = [
   { icon: ShieldOff, title: "Securite Anti-Vol", desc: "Systemes EAS, tags securises et portiques pour commerces et entrepots.", img: "https://images.unsplash.com/photo-1580674287405-80cd77a2fee2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
   { icon: Volume2, title: "Sonorisation & AV", desc: "Systemes audiovisuels, salles de conference et affichage dynamique.", img: "https://images.unsplash.com/photo-1511578314322-379afb476865?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
   { icon: Network, title: "Reseaux Informatiques", desc: "Cablage Cat6, fibre optique, Wi-Fi entreprise et baies de brassage.", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
+  { icon: Laptop, title: "Fourniture Materiel IT", desc: "Ordinateurs, imprimantes, onduleurs, consommables et materiel bureautique pour entreprises.", img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
   { icon: Home, title: "Domotique & Automatisation", desc: "Batiments intelligents : eclairage, HVAC, securite integres.", img: "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
 ];
 
@@ -64,11 +65,13 @@ export default function Index() {
                 {STATS.map((s) => <div key={s.label}><div className="text-2xl font-bold text-gray-900">{s.value}</div><div className="text-xs text-gray-500 mt-0.5">{s.label}</div></div>)}
               </div>
             </motion.div>
-            <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.15 }} className="relative">
-              <div className="rounded-2xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=900" alt="Cameras de surveillance GSV" className="w-full h-[480px] object-cover" />
+            <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.15 }} className="relative pb-12">
+              <div className="relative overflow-hidden rounded-[28px] shadow-2xl shadow-blue-950/20">
+                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=900" alt="Cameras de surveillance GSV" className="gsv-hero-image w-full h-[500px] object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/25 via-transparent to-red-500/20" />
+                <div className="gsv-hero-wave" />
               </div>
-              <div className="absolute -bottom-5 -left-5 bg-white rounded-xl shadow-lg border border-gray-100 p-4 flex items-center gap-3">
+              <div className="absolute bottom-4 -left-5 bg-white rounded-xl shadow-lg border border-gray-100 p-4 flex items-center gap-3">
                 <div className="gsv-accent-icon w-10 h-10 rounded-lg flex items-center justify-center shrink-0"><CheckCircle size={20} /></div>
                 <div><div className="text-sm font-semibold text-gray-900">Certifie & Agree</div><div className="text-xs text-gray-500">Normes EN 50131</div></div>
               </div>
@@ -78,7 +81,7 @@ export default function Index() {
       </section>
       <section className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
-          <FadeIn><div className="mb-12"><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Nos Services</p><h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">9 domaines d'expertise securite</h2><p className="text-gray-500 max-w-xl">De la videosurveillance a la domotique, nous couvrons l'ensemble des besoins en securite electronique.</p></div></FadeIn>
+          <FadeIn><div className="mb-12"><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Nos Services</p><h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">10 domaines d'expertise securite & IT</h2><p className="text-gray-500 max-w-xl">De la videosurveillance au materiel bureautique, nous couvrons l'ensemble des besoins en securite electronique et infrastructure informatique.</p></div></FadeIn>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map((s, i) => (
               <FadeIn key={s.title} delay={i * 0.05}>

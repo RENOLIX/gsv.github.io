@@ -8,6 +8,7 @@ import {
   Flame,
   Home,
   KeyRound,
+  Laptop,
   Network,
   ScanLine,
   ShieldAlert,
@@ -84,6 +85,14 @@ const SERVICES = [
     features: ["Cat6 / Cat6A", "Fibre optique", "Baie brassage", "Wi-Fi pro"],
   },
   {
+    icon: Laptop,
+    title: "Fourniture Materiel Bureautique & IT",
+    subtitle: "Ordinateurs, imprimantes, accessoires et consommables",
+    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80",
+    description: "Fourniture de materiels bureautiques et informatiques pour entreprises : postes de travail, imprimantes, onduleurs, accessoires, consommables et equipements reseau.",
+    features: ["PC & laptops", "Imprimantes", "Onduleurs", "Consommables"],
+  },
+  {
     icon: Home,
     title: "Domotique & Automatisation",
     subtitle: "Batiments intelligents et pilotage centralise",
@@ -158,7 +167,7 @@ export default function ServicesPage() {
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent p-6">
                   <div className="grid grid-cols-3 gap-3 text-white">
                     <div>
-                      <div className="text-2xl font-bold">9</div>
+                      <div className="text-2xl font-bold">10</div>
                       <div className="text-xs text-white/75">Domaines</div>
                     </div>
                     <div>

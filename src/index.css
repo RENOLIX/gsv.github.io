@@ -114,3 +114,28 @@
 .gsv-logo-mark {
   filter: drop-shadow(0 10px 24px rgba(11, 143, 255, 0.18)) drop-shadow(0 8px 18px rgba(255, 31, 45, 0.12));
 }
+
+.gsv-hero-image {
+  clip-path: polygon(0 0, 100% 0, 100% 86%, 88% 93%, 73% 88%, 58% 98%, 42% 91%, 27% 96%, 12% 89%, 0 94%);
+}
+
+.gsv-hero-wave {
+  position: absolute;
+  left: -8%;
+  right: -8%;
+  bottom: -34px;
+  height: 96px;
+  background: linear-gradient(135deg, rgba(11, 143, 255, 0.9), rgba(17, 24, 39, 0.94) 55%, rgba(255, 31, 45, 0.85));
+  border-radius: 48% 52% 0 0 / 72% 62% 0 0;
+  opacity: 0.95;
+}
+
+.gsv-hero-wave::after {
+  content: "";
+  position: absolute;
+  inset: 13px 8% auto 8%;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.26);
+  filter: blur(8px);
+}

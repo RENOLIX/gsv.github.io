@@ -10,6 +10,7 @@ const services = [
   "Securite Anti-Vol",
   "Sonorisation & AV",
   "Reseaux Informatiques",
+  "Fourniture Materiel Bureautique & IT",
   "Domotique & Automatisation",
 ];
 

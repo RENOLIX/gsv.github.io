@@ -15,7 +15,7 @@ const CONTACT_INFO = [
   { icon: Clock, title: "Horaires", lines: ["Lun - Ven : 08:00 - 18:00", "Sam : 08:00 - 13:00"] },
 ];
 
-const SERVICES_LIST = ["Videosurveillance (CCTV)", "Systeme Anti-Intrusion", "Detection Incendie", "Controle d'Acces", "Scanner Corporel", "Securite Anti-Vol", "Sonorisation & AV", "Reseaux Informatiques", "Domotique & Automatisation", "Autre"];
+const SERVICES_LIST = ["Videosurveillance (CCTV)", "Systeme Anti-Intrusion", "Detection Incendie", "Controle d'Acces", "Scanner Corporel", "Securite Anti-Vol", "Sonorisation & AV", "Reseaux Informatiques", "Fourniture Materiel Bureautique & IT", "Domotique & Automatisation", "Autre"];
 
 type FormState = { name: string; company: string; email: string; phone: string; service: string; message: string };
 
