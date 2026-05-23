@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="96" viewBox="0 0 220 96" role="img" aria-label="Aeroport d'Alger">
+  <rect width="220" height="96" rx="16" fill="#ffffff"/>
+  <rect x="1" y="1" width="218" height="94" rx="15" fill="none" stroke="#e5e7eb"/>
+  <path d="M44 25l42 23-42 23v-14l-22-9 22-9V25z" fill="#111827"/>
+  <text x="106" y="43" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#111827">AEROPORT</text>
+  <text x="106" y="62" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="500" fill="#6b7280">D'ALGER</text>
+</svg>

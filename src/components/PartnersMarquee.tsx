@@ -1,10 +1,10 @@
 const PARTNERS = [
-  { name: "Aeroport d'Alger", img: "https://hercules-cdn.com/file_wd8FbD2ovGtDdaUqMGuRUNdr" },
-  { name: "CMTB", img: "https://hercules-cdn.com/file_9pqAuu22K7hHcQbqc0x6Fkcc" },
-  { name: "Kheyar Superette", img: "https://hercules-cdn.com/file_s9wTCLp8ijTCy0zAwnPr8zO4" },
-  { name: "Casa Medica Shop", img: "https://hercules-cdn.com/file_uNQ5rKNcRWVtLjkFZmV5MRep" },
-  { name: "Universite de Boumerdes", img: "https://hercules-cdn.com/file_IAWhLXo52XGQnyob6LHESxp1" },
-  { name: "GSV Partner", img: "https://hercules-cdn.com/file_DLBbd3mjCTQxVJ940o7BHCw3" },
+  { name: "Aeroport d'Alger", img: "partners/aeroport-alger.svg" },
+  { name: "CMTB", img: "partners/cmtb.svg" },
+  { name: "Kheyar Superette", img: "partners/kheyar-superette.svg" },
+  { name: "Casa Medica Shop", img: "partners/casa-medica.svg" },
+  { name: "Universite de Boumerdes", img: "partners/universite-boumerdes.svg" },
+  { name: "GSV Partner", img: "partners/gsv-partner.svg" },
 ];
 
 const TRACK = [...PARTNERS, ...PARTNERS];
@@ -20,7 +20,7 @@ function PartnerLogo({ name, img }: { name: string; img: string }) {
   return (
     <div className="shrink-0 h-20 w-44 rounded-xl border border-gray-200 bg-white shadow-sm flex items-center justify-center px-5">
       <img
-        src={img}
+        src={`${import.meta.env.BASE_URL}${img}`}
         alt={name}
         className="max-h-12 max-w-32 object-contain"
         onError={(event) => {

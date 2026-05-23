@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="96" viewBox="0 0 220 96" role="img" aria-label="CMTB">
+  <rect width="220" height="96" rx="16" fill="#ffffff"/>
+  <rect x="1" y="1" width="218" height="94" rx="15" fill="none" stroke="#e5e7eb"/>
+  <circle cx="57" cy="48" r="24" fill="#111827"/>
+  <text x="42" y="55" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#ffffff">C</text>
+  <text x="94" y="54" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="#111827">CMTB</text>
+</svg>

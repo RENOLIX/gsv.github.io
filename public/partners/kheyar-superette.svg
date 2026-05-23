@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="96" viewBox="0 0 220 96" role="img" aria-label="Kheyar Superette">
+  <rect width="220" height="96" rx="16" fill="#ffffff"/>
+  <rect x="1" y="1" width="218" height="94" rx="15" fill="none" stroke="#e5e7eb"/>
+  <rect x="29" y="29" width="50" height="38" rx="10" fill="#111827"/>
+  <path d="M37 40h34M41 50h26M45 60h18" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  <text x="98" y="44" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#111827">KHEYAR</text>
+  <text x="98" y="63" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#6b7280">SUPERETTE</text>
+</svg>
