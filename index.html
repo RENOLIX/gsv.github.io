@@ -8,6 +8,7 @@
     <meta name="author" content="GSV Global Security Vision" />
     <meta name="robots" content="max-image-preview:large" />
     <link rel="canonical" href="https://renolix.github.io/gsv.github.io/" />
+    <link rel="preload" as="image" href="%BASE_URL%hero/hero-loading-cover.png" fetchpriority="high" />
     <link rel="preload" as="video" href="%BASE_URL%hero/gsv-hero-mobile.mp4" type="video/mp4" media="(max-width: 767px)" fetchpriority="high" />
     <link rel="preload" as="video" href="%BASE_URL%hero/gsv-hero.mp4" type="video/mp4" media="(min-width: 768px)" fetchpriority="high" />
     <style>
@@ -27,6 +28,17 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+      #gsv-instant-hero img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.45s ease;
+      }
+      #gsv-instant-hero.gsv-video-ready img {
+        opacity: 0;
       }
       #gsv-instant-hero::after {
         content: "";
@@ -59,10 +71,11 @@
   <body>
     <div id="root">
       <section id="gsv-instant-hero" aria-hidden="true">
-        <video autoplay muted loop playsinline preload="auto">
+        <video autoplay muted loop playsinline preload="auto" oncanplay="this.parentElement.classList.add('gsv-video-ready')" onplaying="this.parentElement.classList.add('gsv-video-ready')">
           <source src="%BASE_URL%hero/gsv-hero-mobile.mp4" media="(max-width: 767px)" type="video/mp4" />
           <source src="%BASE_URL%hero/gsv-hero.mp4" media="(min-width: 768px)" type="video/mp4" />
         </video>
+        <img src="%BASE_URL%hero/hero-loading-cover.png" alt="" />
       </section>
     </div>
     <script type="module" src="/src/main.tsx"></script>

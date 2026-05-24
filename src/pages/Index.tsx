@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "motion/react";
 import {
@@ -60,6 +60,8 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 }
 
 export default function Index() {
+  const [heroVideoReady, setHeroVideoReady] = useState(false);
+
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <Navbar />
@@ -73,10 +75,18 @@ export default function Index() {
           playsInline
           preload="auto"
           aria-hidden="true"
+          onCanPlay={() => setHeroVideoReady(true)}
+          onPlaying={() => setHeroVideoReady(true)}
         >
           <source src={`${import.meta.env.BASE_URL}hero/gsv-hero-mobile.mp4`} media="(max-width: 767px)" type="video/mp4" />
           <source src={`${import.meta.env.BASE_URL}hero/gsv-hero.mp4`} media="(min-width: 768px)" type="video/mp4" />
         </video>
+        <img
+          src={`${import.meta.env.BASE_URL}hero/hero-loading-cover.png`}
+          alt=""
+          aria-hidden="true"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${heroVideoReady ? "opacity-0" : "opacity-100"}`}
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-gray-950/88 via-gray-950/55 to-gray-950/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-950/55 via-transparent to-gray-950/45" />
         <div className="absolute -bottom-1 left-0 right-0 h-28 bg-white" style={{ clipPath: "polygon(0 54%, 12% 46%, 25% 60%, 41% 42%, 58% 55%, 74% 36%, 88% 48%, 100% 30%, 100% 100%, 0 100%)" }} />
