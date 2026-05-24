@@ -177,18 +177,18 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="bg-white py-7" dir="ltr" aria-label="Badges GSV">
-        <div className="mx-auto flex max-w-6xl items-center justify-center gap-8 px-6 sm:gap-14">
+      <section className="bg-white py-0" dir="ltr" aria-label="Badges GSV">
+        <div className="mx-auto flex max-w-6xl items-center justify-center gap-8 px-6 sm:gap-16">
           <img
             src={`${import.meta.env.BASE_URL}badges/satisfaction.png`}
             alt="Satisfaction garantie"
-            className="h-20 w-auto object-contain sm:h-24"
+            className="h-28 w-auto object-contain sm:h-36 lg:h-44"
             loading="eager"
           />
           <img
             src={`${import.meta.env.BASE_URL}badges/agree-etat.png`}
             alt="Agree par l'etat"
-            className="h-20 w-auto object-contain sm:h-24"
+            className="h-28 w-auto object-contain sm:h-36 lg:h-44"
             loading="eager"
           />
         </div>
