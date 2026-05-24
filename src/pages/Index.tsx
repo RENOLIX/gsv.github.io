@@ -177,7 +177,7 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" dir="ltr">
         <div className="max-w-6xl mx-auto px-6">
           <div className="relative min-h-[440px]">
             <div className="lg:absolute lg:right-0 lg:top-0 lg:w-[56%]">
@@ -189,7 +189,7 @@ export default function Index() {
                 />
               </div>
             </div>
-            <div className="relative z-10 mt-[-60px] lg:mt-16 lg:w-[56%] border-l-4 border-blue-500 bg-white p-7 sm:p-10 shadow-2xl shadow-gray-200">
+            <div className="relative z-10 mt-[-60px] lg:mt-16 lg:w-[56%] border-l-4 border-blue-500 bg-white p-7 sm:p-10 shadow-2xl shadow-gray-200" dir={language === "ar" ? "rtl" : "ltr"}>
               <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">{t("aboutUs")}</p>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">GLOBAL SECURITY VISION</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-6">

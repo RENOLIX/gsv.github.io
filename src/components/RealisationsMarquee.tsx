@@ -16,7 +16,7 @@ const mediaItems = [
 ];
 
 export default function RealisationsMarquee() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const [current, setCurrent] = useState(0);
   const item = mediaItems[current];
 
@@ -24,8 +24,8 @@ export default function RealisationsMarquee() {
   const next = () => setCurrent((value) => (value === mediaItems.length - 1 ? 0 : value + 1));
 
   return (
-    <section className="py-20 bg-white border-y border-gray-100">
-      <div className="max-w-6xl mx-auto px-6 mb-10">
+    <section className="py-20 bg-white border-y border-gray-100" dir="ltr">
+      <div className="max-w-6xl mx-auto px-6 mb-10" dir={language === "ar" ? "rtl" : "ltr"}>
         <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">{t("realisationsEyebrow")}</p>
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">{t("realisationsTitle")}</h2>
         <p className="text-gray-500 max-w-2xl text-sm leading-relaxed">
@@ -34,21 +34,21 @@ export default function RealisationsMarquee() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid gap-5 lg:grid-cols-[1fr_220px] lg:items-stretch">
-          <div className="relative overflow-hidden rounded-2xl bg-gray-100 shadow-xl shadow-gray-200/80">
-            <div className="aspect-[4/5] sm:aspect-[16/10] lg:aspect-[16/9]">
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,560px)_150px] lg:items-center lg:justify-center">
+          <div className="relative overflow-hidden rounded-2xl bg-gray-100 shadow-xl shadow-gray-200/80 lg:max-h-[540px]">
+            <div className="aspect-[4/5] sm:aspect-[16/10] lg:aspect-auto lg:h-[540px]">
               {item.type === "image" ? (
                 <img
                   key={item.src}
                   src={`${import.meta.env.BASE_URL}${item.src}`}
                   alt={item.title}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover lg:object-contain"
                 />
               ) : (
                 <video
                   key={item.src}
                   src={`${import.meta.env.BASE_URL}${item.src}`}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover lg:object-contain"
                   autoPlay
                   muted
                   loop

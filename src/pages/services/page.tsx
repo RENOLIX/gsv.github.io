@@ -12,7 +12,6 @@ import {
   Network,
   ScanLine,
   ShieldAlert,
-  ShieldCheck,
   ShieldOff,
   Volume2,
 } from "lucide-react";
@@ -181,58 +180,32 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <Navbar />
 
-      <section className="pt-32 pb-16 bg-white border-b border-gray-100">
+      <section className="pt-28 pb-10 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-[1fr_420px] gap-12 items-center">
-            <motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
-              <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-1.5 mb-6 ring-1 ring-blue-100">
-                <ShieldCheck size={14} className="text-blue-600" />
-                <span className="text-xs font-semibold text-gray-600">{t("heroBadge")}</span>
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="relative overflow-hidden rounded-2xl border border-gray-200 bg-gray-950 px-6 py-10 text-white shadow-xl shadow-gray-200/80 sm:px-10"
+          >
+            <div className="absolute inset-0 opacity-80" style={{ background: "linear-gradient(120deg, rgba(11,143,255,0.28), transparent 34%), radial-gradient(circle at 88% 20%, rgba(255,31,45,0.28), transparent 24%)" }} />
+            <div className="relative flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl">
+                <p className="text-xs font-semibold uppercase tracking-wider text-blue-200 mb-3">{t("servicesEyebrow")}</p>
+                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{t("servicesHeroTitle")}</h1>
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/70">{t("servicesHeroText")}</p>
               </div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("servicesEyebrow")}</p>
-              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight text-gray-900 mb-5">
-                {t("servicesHeroTitle")}
-              </h1>
-              <p className="text-lg text-gray-500 leading-relaxed max-w-2xl">
-                {t("servicesHeroText")}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 mt-8">
-                <Link to="/contact" className="gsv-gradient-button inline-flex items-center justify-center rounded-2xl px-7 py-3 text-sm font-semibold">
+              <div className="flex flex-col gap-3 sm:flex-row lg:shrink-0">
+                <Link to="/contact" className="gsv-gradient-button inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-semibold">
                   {t("requestQuote")}
-                  <ArrowRight size={16} className="ml-2" />
+                  <ArrowRight size={15} className="ml-2" />
                 </Link>
-                <a href="#services-grid" className="gsv-outline-button inline-flex items-center justify-center rounded-2xl px-7 py-3 text-sm font-semibold">
+                <a href="#services-grid" className="inline-flex items-center justify-center rounded-xl border border-white/25 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/16">
                   {t("servicesButton")}
                 </a>
               </div>
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.55, delay: 0.1 }}>
-              <div className="relative overflow-hidden rounded-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?auto=format&fit=crop&w=900&q=80"
-                  alt="Installation de solutions de securite"
-                  className="h-[360px] w-full object-cover"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent p-6">
-                  <div className="grid grid-cols-3 gap-3 text-white">
-                    <div>
-                      <div className="text-2xl font-bold">10</div>
-                      <div className="text-xs text-white/75">{localized.metrics[0]}</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold">24/7</div>
-                      <div className="text-xs text-white/75">{localized.metrics[1]}</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold">15+</div>
-                      <div className="text-xs text-white/75">{localized.metrics[2]}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
