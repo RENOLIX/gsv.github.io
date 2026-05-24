@@ -1,28 +1,30 @@
 import { useState } from "react";
 import { Plus, X } from "lucide-react";
+import { useLanguage } from "@/lib/language";
 
-const FAQS = [
-  {
-    q: "Proposez-vous la telesurveillance a distance ?",
-    a: "Oui, nos systemes de surveillance integrent une supervision en temps reel via application mobile avec alertes instantanees.",
-  },
-  {
-    q: "Votre systeme de detection incendie est-il certifie ?",
-    a: "Absolument. Tous nos equipements incendie sont conformes aux normes EN 54 et agrees par les organismes de securite nationaux.",
-  },
-  {
-    q: "Combien de temps prend une installation ?",
-    a: "Selon l'envergure du projet, une installation standard prend entre 1 et 5 jours ouvrables. Un planning precis est etabli lors du devis.",
-  },
-  {
-    q: "Proposez-vous un contrat de maintenance ?",
-    a: "Oui, nous offrons des contrats de maintenance preventive et corrective 24h/24 et 7j/7 pour garantir la continuite de votre securite.",
-  },
-  {
-    q: "Travaillez-vous avec des grandes entreprises ?",
-    a: "Nous intervenons aussi bien pour les PME que pour les grandes entreprises, hotels, universites et sites industriels a travers tout le pays.",
-  },
-];
+const FAQS = {
+  fr: [
+    { q: "Proposez-vous la telesurveillance a distance ?", a: "Oui, nos systemes de surveillance integrent une supervision en temps reel via application mobile avec alertes instantanees." },
+    { q: "Votre systeme de detection incendie est-il certifie ?", a: "Oui. Nos equipements incendie respectent les normes de securite adaptees aux sites professionnels." },
+    { q: "Combien de temps prend une installation ?", a: "Selon l'envergure du projet, une installation standard prend entre 1 et 5 jours ouvrables." },
+    { q: "Proposez-vous un contrat de maintenance ?", a: "Oui, nous proposons une maintenance preventive et corrective pour garantir la continuite de votre securite." },
+    { q: "Travaillez-vous avec des entreprises ?", a: "Nous intervenons pour particuliers, commerces, PME, grandes entreprises, institutions et sites industriels." },
+  ],
+  en: [
+    { q: "Do you offer remote monitoring?", a: "Yes, our surveillance systems include real-time supervision through mobile apps with instant alerts." },
+    { q: "Is your fire detection system compliant?", a: "Yes. Our fire safety equipment follows the safety requirements suitable for professional sites." },
+    { q: "How long does an installation take?", a: "Depending on the project size, a standard installation takes between 1 and 5 working days." },
+    { q: "Do you offer maintenance contracts?", a: "Yes, we offer preventive and corrective maintenance to keep your security running reliably." },
+    { q: "Do you work with businesses?", a: "We work with individuals, shops, SMEs, large companies, institutions and industrial sites." },
+  ],
+  ar: [
+    { q: "هل توفرون المراقبة عن بعد؟", a: "نعم، تتضمن أنظمة المراقبة لدينا متابعة فورية عبر تطبيق الهاتف مع تنبيهات مباشرة." },
+    { q: "هل نظام كشف الحريق مطابق للمعايير؟", a: "نعم، معدات الحريق لدينا تراعي متطلبات السلامة المناسبة للمواقع المهنية." },
+    { q: "كم تستغرق عملية التركيب؟", a: "حسب حجم المشروع، تستغرق عملية التركيب عادة من يوم إلى خمسة أيام عمل." },
+    { q: "هل توفرون عقود صيانة؟", a: "نعم، نوفر صيانة وقائية وتصحيحية لضمان استمرار عمل أنظمة الحماية." },
+    { q: "هل تعملون مع الشركات؟", a: "نخدم الأفراد والمتاجر والمؤسسات الصغيرة والكبيرة والهيئات والمواقع الصناعية." },
+  ],
+};
 
 const glassCard: React.CSSProperties = {
   background: "rgba(255, 255, 255, 0.80)",
@@ -41,11 +43,12 @@ const glassBtn: React.CSSProperties = {
 };
 
 export default function FaqAccordion() {
+  const { language } = useLanguage();
   const [open, setOpen] = useState<number | null>(0);
 
   return (
     <div className="space-y-3">
-      {FAQS.map((faq, i) => {
+      {FAQS[language].map((faq, i) => {
         const isOpen = open === i;
         return (
           <div

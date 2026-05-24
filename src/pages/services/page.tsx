@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { useLanguage } from "@/lib/language";
 
 const SERVICES = [
   {
@@ -127,6 +128,8 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 }
 
 export default function ServicesPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <Navbar />
@@ -137,22 +140,22 @@ export default function ServicesPage() {
             <motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
               <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-1.5 mb-6 ring-1 ring-blue-100">
                 <ShieldCheck size={14} className="text-blue-600" />
-                <span className="text-xs font-semibold text-gray-600">Fourniture · Pose · Maintenance</span>
+                <span className="text-xs font-semibold text-gray-600">{t("heroBadge")}</span>
               </div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Nos Services</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("servicesEyebrow")}</p>
               <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight text-gray-900 mb-5">
-                Des solutions de securite completes, installees proprement
+                {t("servicesHeroTitle")}
               </h1>
               <p className="text-lg text-gray-500 leading-relaxed max-w-2xl">
-                GSV accompagne les entreprises, commerces, institutions et particuliers avec des systemes fiables, evolutifs et faciles a utiliser au quotidien.
+                {t("servicesHeroText")}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 mt-8">
                 <Link to="/contact" className="gsv-gradient-button inline-flex items-center justify-center rounded-2xl px-7 py-3 text-sm font-semibold">
-                  Demander un devis
+                  {t("requestQuote")}
                   <ArrowRight size={16} className="ml-2" />
                 </Link>
                 <a href="#services-grid" className="gsv-outline-button inline-flex items-center justify-center rounded-2xl px-7 py-3 text-sm font-semibold">
-                  Voir les services
+                  {t("servicesButton")}
                 </a>
               </div>
             </motion.div>
@@ -191,11 +194,11 @@ export default function ServicesPage() {
           <FadeIn>
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Expertises</p>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Chaque besoin a sa solution</h2>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("expertiseEyebrow")}</p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">{t("expertiseServicesTitle")}</h2>
               </div>
               <p className="text-sm text-gray-500 leading-relaxed max-w-md">
-                Choisissez un service, expliquez-nous votre site, puis notre equipe vous propose une solution adaptee a votre budget et vos contraintes.
+                {t("expertiseServicesText")}
               </p>
             </div>
           </FadeIn>
@@ -228,7 +231,7 @@ export default function ServicesPage() {
                       ))}
                     </div>
                     <Link to="/contact" className="mt-6 inline-flex items-center text-sm font-semibold text-blue-600 group-hover:text-red-600">
-                      Demander ce service
+                      {t("requestThisService")}
                       <ArrowRight size={15} className="ml-1 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </div>
@@ -244,10 +247,10 @@ export default function ServicesPage() {
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-center">
             <FadeIn>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Methode</p>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Un projet propre du diagnostic a la maintenance</h2>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("methodEyebrow")}</p>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">{t("methodTitle")}</h2>
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  Notre equipe analyse votre site, recommande le bon materiel, realise une installation nette, puis reste disponible pour les reglages, extensions et maintenances.
+                  {t("methodText")}
                 </p>
               </div>
             </FadeIn>
@@ -273,14 +276,14 @@ export default function ServicesPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-white/45 mb-3">Devis gratuit</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">Vous avez un site a securiser ?</h2>
+              <p className="text-xs font-semibold uppercase tracking-wider text-white/45 mb-3">{t("freeQuoteEyebrow")}</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">{t("siteSecureTitle")}</h2>
               <p className="text-gray-400 text-sm leading-relaxed max-w-xl">
-                Envoyez-nous votre besoin, meme approximatif. Nous vous aidons a choisir le bon systeme sans surdimensionner votre installation.
+                {t("siteSecureText")}
               </p>
             </div>
             <Link to="/contact" className="inline-flex items-center justify-center rounded-2xl bg-white px-8 py-3 text-sm font-semibold text-gray-950">
-              Contacter GSV
+              {t("contactUs")}
               <ArrowRight size={16} className="ml-2" />
             </Link>
           </div>

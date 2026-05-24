@@ -5,9 +5,7 @@ import Footer from "@/components/Footer";
 import MapBlock from "@/components/MapBlock";
 import Navbar from "@/components/Navbar";
 import RealisationsMarquee from "@/components/RealisationsMarquee";
-
-const ABOUT_TEXT =
-  "GLOBAL SECURITY VISION, fondee en 2020, est une entreprise specialisee dans les solutions de securite integrees. Nous offrons des services de videosurveillance, systemes anti-intrusion, alarmes incendie, automatisation, controle d'acces, et bien plus encore. Nous realisons un diagnostic pousse afin de determiner vos besoins et proposons des services parfaitement adaptes a chaque client pour ameliorer la securite de votre site. Grace a notre expertise et a notre approche innovante, nous protegeons vos espaces avec des solutions fiables et efficaces.";
+import { useLanguage } from "@/lib/language";
 
 const EXPERTISES = [
   { icon: Eye, title: "Videosurveillance", desc: "Supervision claire de vos espaces avec des cameras adaptees a chaque site." },
@@ -27,6 +25,13 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 }
 
 export default function AboutPage() {
+  const { language, t } = useLanguage();
+  const bullets = {
+    fr: ["Entreprise fondee en 2020", "Diagnostic pousse avant chaque proposition", "Solutions adaptees aux besoins reels de chaque client", "Approche innovante et installation professionnelle"],
+    en: ["Company founded in 2020", "Detailed diagnosis before every proposal", "Solutions adapted to each client's real needs", "Innovative approach and professional installation"],
+    ar: ["شركة تأسست سنة 2020", "تشخيص دقيق قبل كل اقتراح", "حلول مناسبة للاحتياجات الحقيقية لكل عميل", "نهج مبتكر وتركيب احترافي"],
+  };
+
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
       <Navbar />
@@ -36,9 +41,9 @@ export default function AboutPage() {
         <div className="absolute right-0 top-8 h-32 w-32 rounded-full bg-red-500/25 blur-3xl" />
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <p className="text-xs font-semibold uppercase tracking-wider text-blue-300 mb-3">A propos</p>
-            <h1 className="text-3xl sm:text-4xl font-bold mb-3">GLOBAL SECURITY VISION</h1>
-            <p className="text-white/70 text-base max-w-2xl">Solutions de securite integrees, diagnostic pousse et accompagnement adapte a chaque client.</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-blue-300 mb-3">{t("navAbout")}</p>
+            <h1 className="text-3xl sm:text-4xl font-bold mb-3">{t("aboutHeroTitle")}</h1>
+            <p className="text-white/70 text-base max-w-2xl">{t("aboutHeroText")}</p>
           </motion.div>
         </div>
       </section>
@@ -48,11 +53,11 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-[1fr_0.9fr] gap-14 items-center">
             <FadeIn>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Notre mission</p>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Proteger vos espaces avec des solutions fiables et efficaces</h2>
-                <p className="text-sm text-gray-500 leading-relaxed">{ABOUT_TEXT}</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("missionEyebrow")}</p>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">{t("missionTitle")}</h2>
+                <p className="text-sm text-gray-500 leading-relaxed">{t("aboutFullText")}</p>
                 <ul className="mt-7 space-y-3">
-                  {["Entreprise fondee en 2020", "Diagnostic pousse avant chaque proposition", "Solutions adaptees aux besoins reels de chaque client", "Approche innovante et installation professionnelle"].map((item) => (
+                  {bullets[language].map((item) => (
                     <li key={item} className="flex items-center gap-3">
                       <CheckCircle size={16} className="text-blue-600 shrink-0" />
                       <span className="text-sm text-gray-600">{item}</span>
@@ -81,8 +86,8 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <div className="mb-12">
-              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Expertise</p>
-              <h2 className="text-3xl font-bold text-gray-900">Ce que nous faisons</h2>
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("expertiseEyebrow")}</p>
+              <h2 className="text-3xl font-bold text-gray-900">{t("expertiseTitle")}</h2>
             </div>
           </FadeIn>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

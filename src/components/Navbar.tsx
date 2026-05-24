@@ -68,7 +68,7 @@ export default function Navbar() {
               {t("freeQuote")}
             </Link>
           </div>
-          <button className="md:hidden p-2 cursor-pointer text-gray-700" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+          <button className="md:hidden -ml-4 p-2 cursor-pointer text-gray-700" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
             {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>

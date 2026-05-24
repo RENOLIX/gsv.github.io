@@ -1,3 +1,5 @@
+import { useLanguage } from "@/lib/language";
+
 const PARTNERS = [
   { name: "Aeroport d'Alger", img: "partners/aeroport-alger.png" },
   { name: "CMTB", img: "partners/cmtb.png" },
@@ -38,13 +40,15 @@ function PartnerLogo({ name, img }: { name: string; img: string }) {
 }
 
 export default function PartnersMarquee() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 bg-white border-y border-gray-100 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 mb-10 text-center">
-        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Partenaires</p>
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Ils nous font confiance</h2>
+        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("partnersEyebrow")}</p>
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">{t("partnersTitle")}</h2>
         <p className="text-gray-500 mt-3 max-w-lg mx-auto text-sm leading-relaxed">
-          Nous sommes fiers de collaborer avec des leaders de l'industrie grace a nos solutions de securite integrees.
+          {t("partnersText")}
         </p>
       </div>
       <div className="relative">

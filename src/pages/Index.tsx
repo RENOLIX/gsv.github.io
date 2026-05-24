@@ -124,7 +124,7 @@ export default function Index() {
               <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">{t("aboutUs")}</p>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">GLOBAL SECURITY VISION</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-6">
-                Fondee en 2020, GLOBAL SECURITY VISION est specialisee dans les solutions de securite integrees. Nous realisons un diagnostic pousse afin de proposer des services adaptes a chaque client.
+                {t("aboutPreviewText")}
               </p>
               <Link to="/about" className="gsv-gradient-button inline-flex items-center rounded-2xl px-6 py-3 text-sm font-semibold">
                 {t("readMore")}
@@ -141,7 +141,7 @@ export default function Index() {
             <div className="mb-12">
               <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("servicesEyebrow")}</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">{t("servicesTitle")}</h2>
-              <p className="text-gray-500 max-w-xl">De la videosurveillance au materiel bureautique, nous couvrons l'ensemble des besoins en securite electronique et infrastructure informatique.</p>
+              <p className="text-gray-500 max-w-xl">{t("homeServicesText")}</p>
             </div>
           </FadeIn>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -156,7 +156,7 @@ export default function Index() {
                         <h3 className="font-semibold text-gray-900 text-sm">{s.title}</h3>
                       </div>
                       <p className="text-xs text-gray-500 leading-relaxed">{s.desc}</p>
-                      <div className="flex items-center gap-1 mt-3 text-xs font-medium text-blue-600 group-hover:text-red-600 transition-colors">En savoir plus <ArrowRight size={11} /></div>
+                      <div className="flex items-center gap-1 mt-3 text-xs font-medium text-blue-600 group-hover:text-red-600 transition-colors">{t("learnMore")} <ArrowRight size={11} /></div>
                     </div>
                   </div>
                 </Link>
@@ -175,15 +175,15 @@ export default function Index() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <FadeIn>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Pourquoi GSV</p>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-5">Une expertise reconnue depuis 15 ans</h2>
-                <p className="text-gray-500 leading-relaxed mb-8">Fondee en 2009, GSV s'est imposee comme reference nationale en solutions de securite integrees. Plus de 1 200 projets realises a travers le pays.</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("whyEyebrow")}</p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-5">{t("whyTitle")}</h2>
+                <p className="text-gray-500 leading-relaxed mb-8">{t("whyText")}</p>
                 <ul className="space-y-3">
                   {["Techniciens certifies par les fabricants", "Materiel de marques internationales", "Etude technique et devis gratuits", "Maintenance preventive et corrective 24/7", "Garantie pieces et main-d'oeuvre"].map((item) => (
                     <li key={item} className="flex items-center gap-3"><CheckCircle size={16} className="text-gray-900 shrink-0" /><span className="text-sm text-gray-600">{item}</span></li>
                   ))}
                 </ul>
-                <div className="mt-8"><Link to="/about" className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl text-sm font-semibold cursor-pointer transition-all duration-200 bg-white border border-gray-200">A propos de GSV <ArrowRight size={14} /></Link></div>
+                <div className="mt-8"><Link to="/about" className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl text-sm font-semibold cursor-pointer transition-all duration-200 bg-white border border-gray-200">{t("navAbout")} <ArrowRight size={14} /></Link></div>
               </div>
             </FadeIn>
             <FadeIn delay={0.1}><div className="rounded-2xl overflow-hidden"><img src="https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800" alt="Installation camera" className="w-full h-[420px] object-cover" /></div></FadeIn>
@@ -193,7 +193,7 @@ export default function Index() {
 
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <FadeIn><div className="mb-12"><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Temoignages</p><h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Ce que disent nos clients</h2></div></FadeIn>
+          <FadeIn><div className="mb-12"><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("testimonialsEyebrow")}</p><h2 className="text-3xl sm:text-4xl font-bold text-gray-900">{t("testimonialsTitle")}</h2></div></FadeIn>
           <div className="grid md:grid-cols-3 gap-6">
             {TESTIMONIALS.map((t, i) => (
               <FadeIn key={t.name} delay={i * 0.08}>
@@ -211,7 +211,7 @@ export default function Index() {
       <section className="py-24 bg-white border-y border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <FadeIn><div><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">FAQ</p><h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Questions ?</h2><p className="text-gray-500 text-sm leading-relaxed max-w-xs">Obtenez des reponses claires sur nos installations de securite et notre support technique.</p></div></FadeIn>
+            <FadeIn><div><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("faqEyebrow")}</p><h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">{t("faqTitle")}</h2><p className="text-gray-500 text-sm leading-relaxed max-w-xs">{t("faqText")}</p></div></FadeIn>
             <FadeIn delay={0.1}><FaqAccordion /></FadeIn>
           </div>
         </div>
@@ -222,11 +222,11 @@ export default function Index() {
         <div className="max-w-6xl mx-auto px-6 text-center">
           <FadeIn>
             <div className="relative">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Pret a securiser votre site ?</h2>
-              <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">Contactez-nous pour une etude gratuite et un devis personnalise adapte a vos besoins.</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t("finalCtaTitle")}</h2>
+              <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">{t("finalCtaText")}</p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Link to="/contact" className="inline-flex items-center justify-center px-8 py-3 rounded-2xl text-sm font-semibold bg-white text-gray-950"><Phone size={16} className="mr-2" />Nous contacter</Link>
-                <Link to="/services" className="inline-flex items-center justify-center px-8 py-3 rounded-2xl text-sm font-semibold border border-white/20 text-white">Voir les services</Link>
+                <Link to="/contact" className="inline-flex items-center justify-center px-8 py-3 rounded-2xl text-sm font-semibold bg-white text-gray-950"><Phone size={16} className="mr-2" />{t("contactUs")}</Link>
+                <Link to="/services" className="inline-flex items-center justify-center px-8 py-3 rounded-2xl text-sm font-semibold border border-white/20 text-white">{t("servicesButton")}</Link>
               </div>
             </div>
           </FadeIn>

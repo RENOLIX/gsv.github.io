@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/lib/language";
 
 const mediaItems = [
   ...Array.from({ length: 26 }, (_, index) => ({
@@ -15,6 +16,7 @@ const mediaItems = [
 ];
 
 export default function RealisationsMarquee() {
+  const { t } = useLanguage();
   const [current, setCurrent] = useState(0);
   const item = mediaItems[current];
 
@@ -24,10 +26,10 @@ export default function RealisationsMarquee() {
   return (
     <section className="py-20 bg-white border-y border-gray-100">
       <div className="max-w-6xl mx-auto px-6 mb-10">
-        <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">Nos realisations</p>
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">Des installations realisees sur le terrain</h2>
+        <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">{t("realisationsEyebrow")}</p>
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">{t("realisationsTitle")}</h2>
         <p className="text-gray-500 max-w-2xl text-sm leading-relaxed">
-          Quelques exemples de nos travaux en videosurveillance, reseaux, controle et equipements de securite.
+          {t("realisationsText")}
         </p>
       </div>
 
@@ -56,8 +58,8 @@ export default function RealisationsMarquee() {
               )}
             </div>
             <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-16 text-white">
-              <span className="text-sm font-semibold">Realisation {current + 1} / {mediaItems.length}</span>
-              <span className="text-xs text-white/75">{item.type === "video" ? "Video" : "Photo"}</span>
+              <span className="text-sm font-semibold">{t("realisation")} <span dir="ltr">{current + 1} / {mediaItems.length}</span></span>
+              <span className="text-xs text-white/75">{item.type === "video" ? t("video") : t("photo")}</span>
             </div>
           </div>
 
@@ -66,19 +68,19 @@ export default function RealisationsMarquee() {
               type="button"
               onClick={previous}
               className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-900 shadow-sm transition hover:border-blue-500 hover:text-blue-600"
-              aria-label="Realisation precedente"
+              aria-label={t("previousRealisation")}
             >
               <ChevronLeft size={22} />
             </button>
             <div className="text-center">
               <p className="text-3xl font-bold text-gray-900">{String(current + 1).padStart(2, "0")}</p>
-              <p className="text-xs uppercase tracking-wider text-gray-400">sur {mediaItems.length}</p>
+              <p className="text-xs uppercase tracking-wider text-gray-400">{t("outOf")} <span dir="ltr">{mediaItems.length}</span></p>
             </div>
             <button
               type="button"
               onClick={next}
               className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-900 shadow-sm transition hover:border-red-500 hover:text-red-600"
-              aria-label="Realisation suivante"
+              aria-label={t("nextRealisation")}
             >
               <ChevronRight size={22} />
             </button>
