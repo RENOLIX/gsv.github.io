@@ -111,6 +111,51 @@ const PROCESS = [
   "Maintenance 24/7",
 ];
 
+const SERVICES_TEXT = {
+  fr: {
+    metrics: ["Domaines", "Support", "Annees"],
+    process: PROCESS,
+    services: SERVICES.map((service) => ({
+      title: service.title,
+      subtitle: service.subtitle,
+      description: service.description,
+      features: service.features,
+    })),
+  },
+  en: {
+    metrics: ["Areas", "Support", "Years"],
+    process: ["Technical study", "Clear quote", "Clean installation", "User training", "24/7 maintenance"],
+    services: [
+      { title: "Video surveillance (CCTV)", subtitle: "IP, HD, thermal cameras and mobile access", description: "Reliable surveillance systems for shops, companies, homes, warehouses and industrial sites.", features: ["4K cameras", "Night vision", "NVR / Cloud", "Smartphone access"] },
+      { title: "Intrusion alarm system", subtitle: "Alarms, detectors, sirens and instant alerts", description: "Active protection against intrusion with motion detection, magnetic contacts and fast notifications.", features: ["PIR detectors", "SMS alert", "Outdoor siren", "Multi-zone panel"] },
+      { title: "Fire detection", subtitle: "Fire panels, detectors and evacuation", description: "Installation of fire safety systems for offices, shops, hotels, factories and public buildings.", features: ["Smoke detectors", "Heat detectors", "Evacuation siren", "Maintenance"] },
+      { title: "Access control", subtitle: "Badges, biometrics, intercom and user permissions", description: "Simple and secure management of entrances, sensitive areas, access schedules and passage logs.", features: ["RFID", "Biometrics", "Video intercom", "Access logs"] },
+      { title: "Body scanner", subtitle: "Detection gates and secure screening", description: "Professional solutions for demanding sites: airports, institutions, banks and events.", features: ["Metal gates", "Hand detectors", "Flow control", "Pro installation"] },
+      { title: "Anti-theft security", subtitle: "EAS gates, tags and merchandise protection", description: "Discreet and effective protection for shops, supermarkets, showrooms and warehouses.", features: ["AM/RF gates", "Anti-theft tags", "Deactivation", "Store audit"] },
+      { title: "Sound & AV systems", subtitle: "Professional audio, display and meeting rooms", description: "Design of audiovisual systems for commercial spaces, conference rooms and public venues.", features: ["Ambient audio", "Conference", "Digital signage", "Pro cabling"] },
+      { title: "Computer networks", subtitle: "Cabling, cabinets, fiber optics and business Wi-Fi", description: "Stable and organized network infrastructure ready for cameras, servers, workstations and applications.", features: ["Cat6 / Cat6A", "Fiber optics", "Patch cabinet", "Pro Wi-Fi"] },
+      { title: "Office & IT equipment supply", subtitle: "Computers, printers, accessories and consumables", description: "Supply of office and IT equipment for companies: workstations, printers, UPS units, accessories, consumables and network equipment.", features: ["PC & laptops", "Printers", "UPS units", "Consumables"] },
+      { title: "Smart automation", subtitle: "Smart buildings and centralized control", description: "Automation of lighting, blinds, access, air conditioning and security from a simple interface.", features: ["Lighting", "Blinds", "HVAC", "Mobile app"] },
+    ],
+  },
+  ar: {
+    metrics: ["مجالات", "دعم", "سنوات"],
+    process: ["دراسة تقنية", "عرض واضح", "تركيب نظيف", "تكوين المستخدم", "صيانة 24/7"],
+    services: [
+      { title: "المراقبة بالفيديو (CCTV)", subtitle: "كاميرات IP و HD وحرارية ووصول عبر الهاتف", description: "أنظمة مراقبة موثوقة للمتاجر والشركات والمنازل والمخازن والمواقع الصناعية.", features: ["كاميرات 4K", "رؤية ليلية", "NVR / Cloud", "وصول بالهاتف"] },
+      { title: "نظام مكافحة التسلل", subtitle: "إنذارات وكواشف وصفارات وتنبيهات فورية", description: "حماية فعالة ضد التسلل مع كواشف حركة وملامسات مغناطيسية وتنبيهات سريعة.", features: ["كواشف PIR", "تنبيه SMS", "صفارة خارجية", "لوحة متعددة المناطق"] },
+      { title: "كشف الحرائق", subtitle: "لوحات حريق وكواشف وإخلاء", description: "تركيب أنظمة حريق مناسبة للمكاتب والمتاجر والفنادق والمصانع والمؤسسات العمومية.", features: ["كواشف دخان", "كواشف حرارة", "صفارة إخلاء", "صيانة"] },
+      { title: "التحكم في الدخول", subtitle: "بطاقات وبصمة وإنترفون وصلاحيات مستخدمين", description: "إدارة سهلة وآمنة للمداخل والمناطق الحساسة وأوقات الدخول وسجلات المرور.", features: ["RFID", "بصمة", "إنترفون فيديو", "سجل المرور"] },
+      { title: "الماسح الجسدي", subtitle: "بوابات كشف ومراقبة آمنة", description: "حلول احترافية للمواقع الحساسة: مطارات، مؤسسات، بنوك وفعاليات.", features: ["بوابات معادن", "كواشف يدوية", "تنظيم التدفق", "تركيب احترافي"] },
+      { title: "الحماية من السرقة", subtitle: "بوابات EAS وبطاقات حماية للبضائع", description: "حماية فعالة وغير مزعجة للمتاجر والسوبرماركت وقاعات العرض والمخازن.", features: ["بوابات AM/RF", "بطاقات مضادة للسرقة", "إلغاء التفعيل", "تدقيق المتجر"] },
+      { title: "الصوتيات والأنظمة السمعية البصرية", subtitle: "صوت احترافي وعرض وقاعات اجتماعات", description: "تصميم أنظمة صوت وصورة للمساحات التجارية وقاعات الاجتماعات والأماكن العامة.", features: ["صوت محيطي", "اجتماعات", "عرض رقمي", "كابلات احترافية"] },
+      { title: "الشبكات المعلوماتية", subtitle: "كابلات وخزائن وألياف بصرية و Wi-Fi للمؤسسات", description: "بنية شبكية مستقرة ومنظمة جاهزة للكاميرات والخوادم والأجهزة والتطبيقات.", features: ["Cat6 / Cat6A", "ألياف بصرية", "خزانة شبكات", "Wi-Fi احترافي"] },
+      { title: "توريد معدات مكتبية ومعلوماتية", subtitle: "حواسيب وطابعات وملحقات ومستهلكات", description: "توريد معدات مكتبية ومعلوماتية للشركات: أجهزة عمل، طابعات، UPS، ملحقات، مستهلكات وتجهيزات شبكة.", features: ["حواسيب ومحمولة", "طابعات", "UPS", "مستهلكات"] },
+      { title: "الأتمتة والبيت الذكي", subtitle: "مبان ذكية وتحكم مركزي", description: "أتمتة الإضاءة والستائر والدخول والتكييف والأمن من واجهة بسيطة.", features: ["إضاءة", "ستائر", "تكييف", "تطبيق هاتف"] },
+    ],
+  },
+} as const;
+
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -128,7 +173,9 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 }
 
 export default function ServicesPage() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
+  const localized = SERVICES_TEXT[language];
+  const services = SERVICES.map((service, index) => ({ ...service, ...localized.services[index] }));
 
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
@@ -171,15 +218,15 @@ export default function ServicesPage() {
                   <div className="grid grid-cols-3 gap-3 text-white">
                     <div>
                       <div className="text-2xl font-bold">10</div>
-                      <div className="text-xs text-white/75">Domaines</div>
+                      <div className="text-xs text-white/75">{localized.metrics[0]}</div>
                     </div>
                     <div>
                       <div className="text-2xl font-bold">24/7</div>
-                      <div className="text-xs text-white/75">Support</div>
+                      <div className="text-xs text-white/75">{localized.metrics[1]}</div>
                     </div>
                     <div>
                       <div className="text-2xl font-bold">15+</div>
-                      <div className="text-xs text-white/75">Annees</div>
+                      <div className="text-xs text-white/75">{localized.metrics[2]}</div>
                     </div>
                   </div>
                 </div>
@@ -204,7 +251,7 @@ export default function ServicesPage() {
           </FadeIn>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES.map((service, i) => (
+            {services.map((service, i) => (
               <FadeIn key={service.title} delay={i * 0.04}>
                 <article className="group h-full overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-xl">
                   <div className="relative h-56 overflow-hidden bg-gray-100">
@@ -256,7 +303,7 @@ export default function ServicesPage() {
             </FadeIn>
 
             <div className="grid sm:grid-cols-5 gap-3">
-              {PROCESS.map((step, index) => (
+              {localized.process.map((step, index) => (
                 <FadeIn key={step} delay={index * 0.05}>
                   <div className="h-full rounded-xl border border-gray-200 bg-white p-4">
                     <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-lg gsv-gradient-button text-sm font-bold text-white">

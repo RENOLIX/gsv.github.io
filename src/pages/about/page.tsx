@@ -14,6 +14,27 @@ const EXPERTISES = [
   { icon: Settings, title: "Automatisation", desc: "Solutions intelligentes pour rendre votre site plus simple a piloter." },
 ];
 
+const EXPERTISES_TEXT = {
+  fr: [
+    { title: "Videosurveillance", desc: "Supervision claire de vos espaces avec des cameras adaptees a chaque site." },
+    { title: "Controle d'acces", desc: "Gestion securisee des entrees, zones sensibles et historiques de passage." },
+    { title: "Anti-intrusion", desc: "Alarmes, detecteurs et alertes pour proteger vos biens en continu." },
+    { title: "Automatisation", desc: "Solutions intelligentes pour rendre votre site plus simple a piloter." },
+  ],
+  en: [
+    { title: "Video surveillance", desc: "Clear monitoring of your spaces with cameras adapted to each site." },
+    { title: "Access control", desc: "Secure management of entrances, sensitive areas and access history." },
+    { title: "Intrusion protection", desc: "Alarms, detectors and alerts to protect your assets continuously." },
+    { title: "Automation", desc: "Smart solutions that make your site easier to manage." },
+  ],
+  ar: [
+    { title: "المراقبة بالفيديو", desc: "متابعة واضحة لمساحاتكم بكاميرات مناسبة لكل موقع." },
+    { title: "التحكم في الدخول", desc: "إدارة آمنة للمداخل والمناطق الحساسة وسجل المرور." },
+    { title: "الحماية من التسلل", desc: "إنذارات وحساسات وتنبيهات لحماية ممتلكاتكم بشكل مستمر." },
+    { title: "الأتمتة", desc: "حلول ذكية تجعل موقعكم أسهل في التحكم والتسيير." },
+  ],
+};
+
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -26,6 +47,10 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 export default function AboutPage() {
   const { language, t } = useLanguage();
+  const expertises = EXPERTISES.map((item, index) => ({
+    ...item,
+    ...EXPERTISES_TEXT[language][index],
+  }));
   const bullets = {
     fr: ["Entreprise fondee en 2020", "Diagnostic pousse avant chaque proposition", "Solutions adaptees aux besoins reels de chaque client", "Approche innovante et installation professionnelle"],
     en: ["Company founded in 2020", "Detailed diagnosis before every proposal", "Solutions adapted to each client's real needs", "Innovative approach and professional installation"],
@@ -91,7 +116,7 @@ export default function AboutPage() {
             </div>
           </FadeIn>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {EXPERTISES.map((item, i) => (
+            {expertises.map((item, i) => (
               <FadeIn key={item.title} delay={i * 0.07}>
                 <div className="bg-white rounded-xl border border-gray-200 p-6">
                   <div className="gsv-accent-icon w-10 h-10 rounded-lg flex items-center justify-center mb-4"><item.icon size={18} /></div>

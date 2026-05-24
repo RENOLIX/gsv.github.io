@@ -2,21 +2,48 @@ import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useLanguage } from "@/lib/language";
 
-const services = [
-  "Videosurveillance (CCTV)",
-  "Systeme Anti-Intrusion",
-  "Detection Incendie",
-  "Controle d'Acces",
-  "Scanner Corporel",
-  "Securite Anti-Vol",
-  "Sonorisation & AV",
-  "Reseaux Informatiques",
-  "Fourniture Materiel Bureautique & IT",
-  "Domotique & Automatisation",
-];
+const services = {
+  fr: [
+    "Videosurveillance (CCTV)",
+    "Systeme Anti-Intrusion",
+    "Detection Incendie",
+    "Controle d'Acces",
+    "Scanner Corporel",
+    "Securite Anti-Vol",
+    "Sonorisation & AV",
+    "Reseaux Informatiques",
+    "Fourniture Materiel Bureautique & IT",
+    "Domotique & Automatisation",
+  ],
+  en: [
+    "CCTV Video Surveillance",
+    "Intrusion Alarm System",
+    "Fire Detection",
+    "Access Control",
+    "Body Scanner",
+    "Anti-Theft Security",
+    "Sound & AV Systems",
+    "Computer Networks",
+    "Office & IT Equipment Supply",
+    "Smart Automation",
+  ],
+  ar: [
+    "المراقبة بالفيديو (CCTV)",
+    "نظام مكافحة التسلل",
+    "كشف الحرائق",
+    "التحكم في الدخول",
+    "الماسح الجسدي",
+    "أنظمة مكافحة السرقة",
+    "الصوتيات والأنظمة السمعية البصرية",
+    "الشبكات المعلوماتية",
+    "توفير تجهيزات المكاتب والإعلام الآلي",
+    "الأتمتة والمباني الذكية",
+  ],
+};
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
+  const serviceLinks = services[language];
   const year = new Date().getFullYear();
 
   return (
@@ -34,7 +61,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">{t("navServices")}</h4>
             <ul className="space-y-2">
-              {services.slice(0, 5).map((s) => (
+              {serviceLinks.slice(0, 5).map((s) => (
                 <li key={s}>
                   <Link to="/services" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">{s}</Link>
                 </li>
@@ -44,7 +71,7 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4 md:opacity-0">{t("navServices")}</h4>
             <ul className="space-y-2">
-              {services.slice(5).map((s) => (
+              {serviceLinks.slice(5).map((s) => (
                 <li key={s}>
                   <Link to="/services" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">{s}</Link>
                 </li>
@@ -56,7 +83,9 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2.5">
                 <MapPin size={14} className="text-gray-400 mt-0.5 shrink-0" />
-                <span className="text-sm text-gray-500">GLOBAL SECURITY VISION, Algerie</span>
+                <span className="text-sm text-gray-500">
+                  GLOBAL SECURITY VISION, {language === "ar" ? "الجزائر" : language === "en" ? "Algeria" : "Algerie"}
+                </span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone size={14} className="text-gray-400 shrink-0" />

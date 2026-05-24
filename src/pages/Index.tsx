@@ -50,6 +50,68 @@ const TESTIMONIALS = [
   { name: "Ahmed Meziane", role: "PDG, Groupe Industriel Meziane", text: "Partenaire depuis 5 ans. Interventions rapides, materiel de qualite et equipe toujours disponible. Satisfaction totale." },
 ];
 
+const HOME_TEXT = {
+  fr: {
+    services: [
+      ["Videosurveillance", "Installation et fourniture de cameras HD, IP, dome, PTZ. Stockage NVR/DVR et acces mobile."],
+      ["Systeme Anti-Intrusion", "Alarmes perimetrique, detecteurs de mouvement, sirenes et alertes en temps reel."],
+      ["Detection Incendie", "Centrales incendie, detecteurs de fumee et thermiques conformes aux normes."],
+      ["Controle d'Acces", "Badges RFID, biometrie, reconnaissance faciale et interphone video."],
+      ["Scanner Corporel", "Portiques de detection metaux et scanners corporels pour sites securises."],
+      ["Securite Anti-Vol", "Systemes EAS, tags securises et portiques pour commerces et entrepots."],
+      ["Sonorisation & AV", "Systemes audiovisuels, salles de conference et affichage dynamique."],
+      ["Reseaux Informatiques", "Cablage Cat6, fibre optique, Wi-Fi entreprise et baies de brassage."],
+      ["Fourniture Materiel IT", "Ordinateurs, imprimantes, onduleurs, consommables et materiel bureautique pour entreprises."],
+      ["Domotique & Automatisation", "Batiments intelligents : eclairage, HVAC, securite integres."],
+    ],
+    stats: ["Clients satisfaits", "Annees d'experience", "Projets realises", "Support & maintenance"],
+    why: ["Techniciens certifies par les fabricants", "Materiel de marques internationales", "Etude technique et devis gratuits", "Maintenance preventive et corrective 24/7", "Garantie pieces et main-d'oeuvre"],
+    testimonials: TESTIMONIALS,
+  },
+  en: {
+    services: [
+      ["Video surveillance", "Supply and installation of HD, IP, dome and PTZ cameras with NVR/DVR storage and mobile access."],
+      ["Intrusion alarm system", "Perimeter alarms, motion detectors, sirens and real-time alerts."],
+      ["Fire detection", "Fire panels, smoke detectors and heat detectors compliant with safety requirements."],
+      ["Access control", "RFID badges, biometrics, facial recognition and video intercom systems."],
+      ["Body scanner", "Metal detection gates and body scanners for secure sites."],
+      ["Anti-theft security", "EAS systems, security tags and gates for shops and warehouses."],
+      ["Sound & AV systems", "Professional audiovisual systems, meeting rooms and digital signage."],
+      ["Computer networks", "Cat6 cabling, fiber optics, business Wi-Fi and network cabinets."],
+      ["Office & IT equipment", "Computers, printers, UPS units, consumables and office IT equipment for companies."],
+      ["Smart automation", "Smart buildings: lighting, HVAC and integrated security control."],
+    ],
+    stats: ["Satisfied clients", "Years of experience", "Completed projects", "Support & maintenance"],
+    why: ["Technicians certified by manufacturers", "International brand equipment", "Free technical study and quote", "Preventive and corrective maintenance 24/7", "Parts and labor warranty"],
+    testimonials: [
+      { name: "Karim Bensalem", role: "General Manager, Hotel Panorama", text: "GSV installed a full video surveillance system in our hotel. Clean work and a very professional team." },
+      { name: "Samira Ouali", role: "Security Manager, Atlas Shopping Center", text: "Their intrusion alarm system greatly strengthened our security. Responsive and trustworthy. Highly recommended." },
+      { name: "Ahmed Meziane", role: "CEO, Meziane Industrial Group", text: "A partner for 5 years. Fast interventions, quality equipment and a team that is always available." },
+    ],
+  },
+  ar: {
+    services: [
+      ["المراقبة بالفيديو", "توريد وتركيب كاميرات HD و IP وقبة و PTZ مع تخزين NVR/DVR ووصول عبر الهاتف."],
+      ["نظام مكافحة التسلل", "إنذارات محيطية وكواشف حركة وصفارات وتنبيهات فورية."],
+      ["كشف الحرائق", "لوحات إنذار حريق وكواشف دخان وحرارة مطابقة لمتطلبات السلامة."],
+      ["التحكم في الدخول", "بطاقات RFID وبصمة وتعرف على الوجه وأنظمة إنترفون بالفيديو."],
+      ["الماسح الجسدي", "بوابات كشف المعادن وماسحات جسدية للمواقع الحساسة."],
+      ["الحماية من السرقة", "أنظمة EAS وبطاقات حماية وبوابات للمتاجر والمخازن."],
+      ["الصوتيات والأنظمة السمعية البصرية", "أنظمة صوت وصورة احترافية وقاعات اجتماعات وشاشات عرض."],
+      ["الشبكات المعلوماتية", "كابلات Cat6 وألياف بصرية و Wi-Fi للمؤسسات وخزائن شبكات."],
+      ["تجهيزات مكتبية ومعلوماتية", "حواسيب وطابعات ومزودات طاقة وملحقات وتجهيزات مكتبية للشركات."],
+      ["الأتمتة والبيت الذكي", "مبان ذكية: إضاءة وتكييف وتحكم أمني مدمج."],
+    ],
+    stats: ["عميل راض", "سنوات خبرة", "مشروع منجز", "دعم وصيانة"],
+    why: ["تقنيون معتمدون من المصنعين", "معدات من علامات عالمية", "دراسة تقنية وعرض سعر مجاني", "صيانة وقائية وتصحيحية 24/7", "ضمان على القطع واليد العاملة"],
+    testimonials: [
+      { name: "كريم بن سالم", role: "المدير العام، فندق بانوراما", text: "قامت GSV بتركيب نظام مراقبة كامل في فندقنا. عمل نظيف وفريق محترف جداً." },
+      { name: "سميرة والي", role: "مسؤولة الأمن، مركز أطلس التجاري", text: "نظام مكافحة التسلل عزز أمننا بشكل كبير. فريق سريع وموثوق. أنصح بهم." },
+      { name: "أحمد مزيان", role: "المدير التنفيذي، مجمع مزيان الصناعي", text: "شريك منذ 5 سنوات. تدخلات سريعة، معدات ذات جودة وفريق متاح دائماً." },
+    ],
+  },
+} as const;
+
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -61,7 +123,14 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 }
 
 export default function Index() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
+  const homeText = HOME_TEXT[language];
+  const services = SERVICES.map((service, index) => ({
+    ...service,
+    title: homeText.services[index][0],
+    desc: homeText.services[index][1],
+  }));
+  const stats = STATS.map((stat, index) => ({ ...stat, label: homeText.stats[index] }));
 
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
@@ -97,7 +166,7 @@ export default function Index() {
               <Link to="/services" className="inline-flex items-center justify-center px-7 py-3 rounded-2xl text-sm font-semibold cursor-pointer transition-all duration-200 border border-white/35 bg-white/12 text-white backdrop-blur-md hover:bg-white/20">{t("servicesButton")}</Link>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 pt-10 border-t border-white/18">
-              {STATS.map((s) => (
+              {stats.map((s) => (
                 <div key={s.label}>
                   <div className="text-2xl font-bold text-white">{s.value}</div>
                   <div className="text-xs text-white/65 mt-0.5">{s.label}</div>
@@ -145,7 +214,7 @@ export default function Index() {
             </div>
           </FadeIn>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {SERVICES.map((s, i) => (
+            {services.map((s, i) => (
               <FadeIn key={s.title} delay={i * 0.05}>
                 <Link to="/services" className="group block h-full">
                   <div className="h-full rounded-2xl overflow-hidden border border-gray-200 bg-white hover:border-gray-300 hover:shadow-md transition-all duration-200">
@@ -179,7 +248,7 @@ export default function Index() {
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-5">{t("whyTitle")}</h2>
                 <p className="text-gray-500 leading-relaxed mb-8">{t("whyText")}</p>
                 <ul className="space-y-3">
-                  {["Techniciens certifies par les fabricants", "Materiel de marques internationales", "Etude technique et devis gratuits", "Maintenance preventive et corrective 24/7", "Garantie pieces et main-d'oeuvre"].map((item) => (
+                  {homeText.why.map((item) => (
                     <li key={item} className="flex items-center gap-3"><CheckCircle size={16} className="text-gray-900 shrink-0" /><span className="text-sm text-gray-600">{item}</span></li>
                   ))}
                 </ul>
@@ -195,7 +264,7 @@ export default function Index() {
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn><div className="mb-12"><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("testimonialsEyebrow")}</p><h2 className="text-3xl sm:text-4xl font-bold text-gray-900">{t("testimonialsTitle")}</h2></div></FadeIn>
           <div className="grid md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, i) => (
+            {homeText.testimonials.map((t, i) => (
               <FadeIn key={t.name} delay={i * 0.08}>
                 <div className="border border-gray-200 rounded-xl p-6 bg-white">
                   <div className="flex gap-0.5 mb-4">{Array.from({ length: 5 }).map((_, j) => <Star key={j} size={13} className="fill-yellow-400 text-yellow-400" />)}</div>
