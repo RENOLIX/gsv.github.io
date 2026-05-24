@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
+import { languageOptions, useLanguage } from "@/lib/language";
 
 const navLinks = [
-  { label: "Accueil", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "A Propos", href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
+  { label: "navHome", href: "/" },
+  { label: "navServices", href: "/services" },
+  { label: "navAbout", href: "/about" },
+  { label: "navContact", href: "/contact" },
+] as const;
 
 export default function Navbar() {
+  const { language, setLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
@@ -47,13 +49,23 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link key={link.href} to={link.href} className={`text-sm font-medium transition-colors ${location.pathname === link.href ? "text-gray-900" : "text-gray-500 hover:text-gray-900"}`}>
-                {link.label}
+                {t(link.label)}
               </Link>
             ))}
           </nav>
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <select
+              value={language}
+              onChange={(event) => setLanguage(event.target.value as typeof language)}
+              className="h-10 rounded-xl border border-gray-200 bg-white/80 px-3 text-sm font-semibold text-gray-700 outline-none"
+              aria-label="Language"
+            >
+              {languageOptions.map((option) => (
+                <option key={option.value} value={option.value}>{option.label}</option>
+              ))}
+            </select>
             <Link to="/contact" className="gsv-gradient-button inline-flex items-center px-5 py-2 text-sm font-semibold rounded-xl cursor-pointer transition-all duration-200">
-              Devis Gratuit
+              {t("freeQuote")}
             </Link>
           </div>
           <button className="md:hidden p-2 cursor-pointer text-gray-700" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
@@ -67,11 +79,21 @@ export default function Navbar() {
             <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3">
               {navLinks.map((link) => (
                 <Link key={link.href} to={link.href} onClick={() => setMenuOpen(false)} className={`text-sm font-medium py-1.5 ${location.pathname === link.href ? "text-gray-900" : "text-gray-500"}`}>
-                  {link.label}
+                  {t(link.label)}
                 </Link>
               ))}
+              <select
+                value={language}
+                onChange={(event) => setLanguage(event.target.value as typeof language)}
+                className="h-10 rounded-xl border border-gray-200 bg-white px-3 text-sm font-semibold text-gray-700 outline-none"
+                aria-label="Language"
+              >
+                {languageOptions.map((option) => (
+                  <option key={option.value} value={option.value}>{option.label}</option>
+                ))}
+              </select>
               <Link to="/contact" onClick={() => setMenuOpen(false)} className="gsv-gradient-button inline-flex justify-center items-center mt-2 px-5 py-2.5 text-sm font-semibold rounded-xl cursor-pointer transition-all duration-200">
-                Devis Gratuit
+                {t("freeQuote")}
               </Link>
             </div>
           </motion.div>

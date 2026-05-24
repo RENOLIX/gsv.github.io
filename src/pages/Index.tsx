@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "motion/react";
 import {
@@ -22,6 +22,7 @@ import Footer from "@/components/Footer";
 import MapBlock from "@/components/MapBlock";
 import Navbar from "@/components/Navbar";
 import PartnersMarquee from "@/components/PartnersMarquee";
+import { useLanguage } from "@/lib/language";
 
 const SERVICES = [
   { icon: Camera, title: "Videosurveillance", desc: "Installation et fourniture de cameras HD, IP, dome, PTZ. Stockage NVR/DVR et acces mobile.", img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
@@ -60,7 +61,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 }
 
 export default function Index() {
-  const [heroVideoReady, setHeroVideoReady] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
@@ -75,18 +76,10 @@ export default function Index() {
           playsInline
           preload="auto"
           aria-hidden="true"
-          onCanPlay={() => setHeroVideoReady(true)}
-          onPlaying={() => setHeroVideoReady(true)}
         >
           <source src={`${import.meta.env.BASE_URL}hero/gsv-hero-mobile.mp4`} media="(max-width: 767px)" type="video/mp4" />
           <source src={`${import.meta.env.BASE_URL}hero/gsv-hero.mp4`} media="(min-width: 768px)" type="video/mp4" />
         </video>
-        <img
-          src={`${import.meta.env.BASE_URL}hero/hero-loading-cover.png`}
-          alt=""
-          aria-hidden="true"
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${heroVideoReady ? "opacity-0" : "opacity-100"}`}
-        />
         <div className="absolute inset-0 bg-gradient-to-r from-gray-950/88 via-gray-950/55 to-gray-950/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-950/55 via-transparent to-gray-950/45" />
         <div className="absolute -bottom-1 left-0 right-0 h-28 bg-white" style={{ clipPath: "polygon(0 54%, 12% 46%, 25% 60%, 41% 42%, 58% 55%, 74% 36%, 88% 48%, 100% 30%, 100% 100%, 0 100%)" }} />
@@ -95,13 +88,13 @@ export default function Index() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-white/12 rounded-full px-4 py-1.5 mb-6 ring-1 ring-white/20 backdrop-blur-md">
               <span className="gsv-red-dot w-1.5 h-1.5 rounded-full" />
-              <span className="text-xs font-semibold text-white/85">Fourniture - Pose - Maintenance</span>
+              <span className="text-xs font-semibold text-white/85">{t("heroBadge")}</span>
             </div>
-            <h1 className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight text-white mb-5">Solutions de securite completes pour votre entreprise</h1>
-            <p className="text-lg text-white/76 leading-relaxed mb-8 max-w-xl">GSV accompagne entreprises, administrations et particuliers avec des systemes de securite fiables et durables. Expertise certifiee depuis 2009.</p>
+            <h1 className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight text-white mb-5">{t("heroTitle")}</h1>
+            <p className="text-lg text-white/76 leading-relaxed mb-8 max-w-xl">{t("heroText")}</p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link to="/contact" className="gsv-gradient-button inline-flex items-center justify-center px-7 py-3 rounded-2xl text-sm font-semibold cursor-pointer transition-all duration-200">Demander un devis gratuit</Link>
-              <Link to="/services" className="inline-flex items-center justify-center px-7 py-3 rounded-2xl text-sm font-semibold cursor-pointer transition-all duration-200 border border-white/35 bg-white/12 text-white backdrop-blur-md hover:bg-white/20">Voir nos services</Link>
+              <Link to="/contact" className="gsv-gradient-button inline-flex items-center justify-center px-7 py-3 rounded-2xl text-sm font-semibold cursor-pointer transition-all duration-200">{t("quoteButton")}</Link>
+              <Link to="/services" className="inline-flex items-center justify-center px-7 py-3 rounded-2xl text-sm font-semibold cursor-pointer transition-all duration-200 border border-white/35 bg-white/12 text-white backdrop-blur-md hover:bg-white/20">{t("servicesButton")}</Link>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 pt-10 border-t border-white/18">
               {STATS.map((s) => (
@@ -128,13 +121,13 @@ export default function Index() {
               </div>
             </div>
             <div className="relative z-10 mt-[-60px] lg:mt-16 lg:w-[56%] border-l-4 border-blue-500 bg-white p-7 sm:p-10 shadow-2xl shadow-gray-200">
-              <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">A propos de nous</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">{t("aboutUs")}</p>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">GLOBAL SECURITY VISION</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-6">
                 Fondee en 2020, GLOBAL SECURITY VISION est specialisee dans les solutions de securite integrees. Nous realisons un diagnostic pousse afin de proposer des services adaptes a chaque client.
               </p>
               <Link to="/about" className="gsv-gradient-button inline-flex items-center rounded-2xl px-6 py-3 text-sm font-semibold">
-                Lire plus
+                {t("readMore")}
                 <ArrowRight size={15} className="ml-2" />
               </Link>
             </div>
@@ -146,8 +139,8 @@ export default function Index() {
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <div className="mb-12">
-              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Nos Services</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">10 domaines d'expertise securite & IT</h2>
+              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("servicesEyebrow")}</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">{t("servicesTitle")}</h2>
               <p className="text-gray-500 max-w-xl">De la videosurveillance au materiel bureautique, nous couvrons l'ensemble des besoins en securite electronique et infrastructure informatique.</p>
             </div>
           </FadeIn>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { useLanguage } from "@/lib/language";
 
 const services = [
   "Videosurveillance (CCTV)",
@@ -15,6 +16,7 @@ const services = [
 ];
 
 export default function Footer() {
+  const { t } = useLanguage();
   const year = new Date().getFullYear();
 
   return (
@@ -26,11 +28,11 @@ export default function Footer() {
               <img src={`${import.meta.env.BASE_URL}brand/gsv-logo.png`} alt="GSV Global Security Vision" className="gsv-logo-mark -ml-8 h-24 w-64 object-contain" />
             </Link>
             <p className="text-sm text-gray-500 leading-relaxed">
-              Votre partenaire de confiance pour des solutions de securite completes. Expertise, fiabilite et protection 24/7.
+              {t("footerText")}
             </p>
           </div>
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">Services</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">{t("navServices")}</h4>
             <ul className="space-y-2">
               {services.slice(0, 5).map((s) => (
                 <li key={s}>
@@ -40,7 +42,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4 md:opacity-0">Services</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4 md:opacity-0">{t("navServices")}</h4>
             <ul className="space-y-2">
               {services.slice(5).map((s) => (
                 <li key={s}>
@@ -50,7 +52,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">Contact</h4>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">{t("contact")}</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2.5">
                 <MapPin size={14} className="text-gray-400 mt-0.5 shrink-0" />
@@ -70,8 +72,8 @@ export default function Footer() {
       </div>
       <div className="border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-gray-400">© {year} GSV - Global Security Vision. Tous droits reserves.</p>
-          <p className="text-xs text-gray-400">Certifie & Agree</p>
+          <p className="text-xs text-gray-400">© {year} GSV - Global Security Vision. {t("rights")}</p>
+          <p className="text-xs text-gray-400">{t("certified")}</p>
         </div>
       </div>
     </footer>
