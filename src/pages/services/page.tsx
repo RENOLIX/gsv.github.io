@@ -19,12 +19,27 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { useLanguage } from "@/lib/language";
 
+const localAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
+const SERVICE_IMAGES = [
+  "https://images.unsplash.com/photo-1557597774-9d273605dfa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1585367437379-e0b71bb18156?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1614519473079-44574d3f4389?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1523121766138-78320028206b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1571680301128-d9344ac2da15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1580674287405-80cd77a2fee2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1511578314322-379afb476865?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  localAsset("realisations/realisation-12.jpeg"),
+  "https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+];
+
 const SERVICES = [
   {
     icon: Camera,
     title: "Videosurveillance (CCTV)",
     subtitle: "Cameras IP, HD, thermiques et acces mobile",
-    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600",
+    image: SERVICE_IMAGES[0],
     description: "Systemes de surveillance fiables pour magasins, entreprises, residences, entrepots et sites industriels.",
     features: ["Cameras 4K", "Vision nocturne", "NVR / Cloud", "Acces smartphone"],
   },
@@ -32,7 +47,7 @@ const SERVICES = [
     icon: ShieldAlert,
     title: "Systeme Anti-Intrusion",
     subtitle: "Alarmes, detecteurs, sirenes et alertes instantanees",
-    image: "https://images.unsplash.com/photo-1585367437379-e0b71bb18156?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600",
+    image: SERVICE_IMAGES[1],
     description: "Protection active contre les intrusions avec detection de mouvement, contacts magnetiques et notification rapide.",
     features: ["Detecteurs PIR", "Alerte SMS", "Sirene exterieure", "Centrale multi-zones"],
   },
@@ -40,7 +55,7 @@ const SERVICES = [
     icon: Flame,
     title: "Detection Incendie",
     subtitle: "Centrales incendie, detecteurs et evacuation",
-    image: "https://images.unsplash.com/photo-1614519473079-44574d3f4389?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600",
+    image: SERVICE_IMAGES[2],
     description: "Installation de dispositifs incendie adaptes aux bureaux, commerces, hotels, usines et etablissements publics.",
     features: ["Detecteurs fumee", "Detecteurs chaleur", "Sirene evacuation", "Maintenance"],
   },
@@ -48,7 +63,7 @@ const SERVICES = [
     icon: KeyRound,
     title: "Controle d'Acces",
     subtitle: "Badges, biometrie, interphone et droits utilisateurs",
-    image: "https://images.unsplash.com/photo-1523121766138-78320028206b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600",
+    image: SERVICE_IMAGES[3],
     description: "Gestion simple et securisee des entrees, zones sensibles, horaires d'acces et historiques de passage.",
     features: ["RFID", "Biometrie", "Interphone video", "Journal des passages"],
   },
@@ -56,7 +71,7 @@ const SERVICES = [
     icon: ScanLine,
     title: "Scanner Corporel",
     subtitle: "Portiques de detection et controle securise",
-    image: "https://images.unsplash.com/photo-1571680301128-d9344ac2da15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600",
+    image: SERVICE_IMAGES[4],
     description: "Solutions professionnelles pour les sites exigeants : aeroports, institutions, banques et evenements.",
     features: ["Portiques metaux", "Detecteurs manuels", "Controle flux", "Installation pro"],
   },
@@ -64,7 +79,7 @@ const SERVICES = [
     icon: ShieldOff,
     title: "Securite Anti-Vol",
     subtitle: "Portiques EAS, tags et protection marchandises",
-    image: "https://images.unsplash.com/photo-1580674287405-80cd77a2fee2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600",
+    image: SERVICE_IMAGES[5],
     description: "Protection discrete et efficace des commerces, supermarches, showrooms et entrepots.",
     features: ["Portiques AM/RF", "Tags antivol", "Desactivation", "Audit magasin"],
   },
@@ -72,7 +87,7 @@ const SERVICES = [
     icon: Volume2,
     title: "Sonorisation & AV",
     subtitle: "Audio professionnel, affichage et salles de reunion",
-    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600",
+    image: SERVICE_IMAGES[6],
     description: "Conception de systemes audiovisuels pour espaces commerciaux, salles de conference et lieux publics.",
     features: ["Audio ambiance", "Conference", "Affichage dynamique", "Cablage pro"],
   },
@@ -80,7 +95,7 @@ const SERVICES = [
     icon: Network,
     title: "Reseaux Informatiques",
     subtitle: "Cablage, baie, fibre optique et Wi-Fi entreprise",
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600",
+    image: SERVICE_IMAGES[7],
     description: "Infrastructure reseau stable, organisee et prete pour vos cameras, serveurs, postes et applications.",
     features: ["Cat6 / Cat6A", "Fibre optique", "Baie brassage", "Wi-Fi pro"],
   },
@@ -88,7 +103,7 @@ const SERVICES = [
     icon: Laptop,
     title: "Fourniture Materiel Bureautique & IT",
     subtitle: "Ordinateurs, imprimantes, accessoires et consommables",
-    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600",
+    image: SERVICE_IMAGES[8],
     description: "Fourniture de materiels bureautiques et informatiques pour entreprises : postes de travail, imprimantes, onduleurs, accessoires, consommables et equipements reseau.",
     features: ["PC & laptops", "Imprimantes", "Onduleurs", "Consommables"],
   },
@@ -96,7 +111,7 @@ const SERVICES = [
     icon: Home,
     title: "Domotique & Automatisation",
     subtitle: "Batiments intelligents et pilotage centralise",
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600",
+    image: SERVICE_IMAGES[9],
     description: "Automatisation de l'eclairage, stores, acces, climatisation et securite depuis une interface simple.",
     features: ["Eclairage", "Stores", "HVAC", "Application mobile"],
   },
@@ -227,7 +242,7 @@ export default function ServicesPage() {
             {services.map((service, i) => (
               <FadeIn key={service.title} delay={i * 0.04}>
                 <article className="group h-full overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-gray-300 hover:shadow-xl">
-                  <div className="relative h-56 overflow-hidden bg-gray-100">
+                  <div className="relative h-64 overflow-hidden bg-gray-100">
                     <img src={service.image} alt={service.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
                     <div className="absolute left-5 bottom-5 flex items-center gap-3">

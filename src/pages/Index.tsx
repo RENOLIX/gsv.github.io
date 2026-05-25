@@ -24,17 +24,32 @@ import Navbar from "@/components/Navbar";
 import PartnersMarquee from "@/components/PartnersMarquee";
 import { useLanguage } from "@/lib/language";
 
+const localAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
+const SERVICE_IMAGES = [
+  "https://images.unsplash.com/photo-1557597774-9d273605dfa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1585367437379-e0b71bb18156?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1614519473079-44574d3f4389?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1523121766138-78320028206b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1571680301128-d9344ac2da15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1580674287405-80cd77a2fee2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1511578314322-379afb476865?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  localAsset("realisations/realisation-12.jpeg"),
+  "https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+  "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1100",
+];
+
 const SERVICES = [
-  { icon: Camera, title: "Videosurveillance", desc: "Installation et fourniture de cameras HD, IP, dome, PTZ. Stockage NVR/DVR et acces mobile.", img: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
-  { icon: ShieldAlert, title: "Systeme Anti-Intrusion", desc: "Alarmes perimetrique, detecteurs de mouvement, sirenes et alertes en temps reel.", img: "https://images.unsplash.com/photo-1585367437379-e0b71bb18156?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
-  { icon: Flame, title: "Detection Incendie", desc: "Centrales incendie, detecteurs de fumee et thermiques conformes aux normes.", img: "https://images.unsplash.com/photo-1614519473079-44574d3f4389?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
-  { icon: KeyRound, title: "Controle d'Acces", desc: "Badges RFID, biometrie, reconnaissance faciale et interphone video.", img: "https://images.unsplash.com/photo-1523121766138-78320028206b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
-  { icon: ScanLine, title: "Scanner Corporel", desc: "Portiques de detection metaux et scanners corporels pour sites securises.", img: "https://images.unsplash.com/photo-1571680301128-d9344ac2da15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
-  { icon: ShieldOff, title: "Securite Anti-Vol", desc: "Systemes EAS, tags securises et portiques pour commerces et entrepots.", img: "https://images.unsplash.com/photo-1580674287405-80cd77a2fee2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
-  { icon: Volume2, title: "Sonorisation & AV", desc: "Systemes audiovisuels, salles de conference et affichage dynamique.", img: "https://images.unsplash.com/photo-1511578314322-379afb476865?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
-  { icon: Network, title: "Reseaux Informatiques", desc: "Cablage Cat6, fibre optique, Wi-Fi entreprise et baies de brassage.", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
-  { icon: Laptop, title: "Fourniture Materiel IT", desc: "Ordinateurs, imprimantes, onduleurs, consommables et materiel bureautique pour entreprises.", img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
-  { icon: Home, title: "Domotique & Automatisation", desc: "Batiments intelligents : eclairage, HVAC, securite integres.", img: "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" },
+  { icon: Camera, title: "Videosurveillance", desc: "Installation et fourniture de cameras HD, IP, dome, PTZ. Stockage NVR/DVR et acces mobile.", img: SERVICE_IMAGES[0] },
+  { icon: ShieldAlert, title: "Systeme Anti-Intrusion", desc: "Alarmes perimetrique, detecteurs de mouvement, sirenes et alertes en temps reel.", img: SERVICE_IMAGES[1] },
+  { icon: Flame, title: "Detection Incendie", desc: "Centrales incendie, detecteurs de fumee et thermiques conformes aux normes.", img: SERVICE_IMAGES[2] },
+  { icon: KeyRound, title: "Controle d'Acces", desc: "Badges RFID, biometrie, reconnaissance faciale et interphone video.", img: SERVICE_IMAGES[3] },
+  { icon: ScanLine, title: "Scanner Corporel", desc: "Portiques de detection metaux et scanners corporels pour sites securises.", img: SERVICE_IMAGES[4] },
+  { icon: ShieldOff, title: "Securite Anti-Vol", desc: "Systemes EAS, tags securises et portiques pour commerces et entrepots.", img: SERVICE_IMAGES[5] },
+  { icon: Volume2, title: "Sonorisation & AV", desc: "Systemes audiovisuels, salles de conference et affichage dynamique.", img: SERVICE_IMAGES[6] },
+  { icon: Network, title: "Reseaux Informatiques", desc: "Cablage Cat6, fibre optique, Wi-Fi entreprise et baies de brassage.", img: SERVICE_IMAGES[7] },
+  { icon: Laptop, title: "Fourniture Materiel IT", desc: "Ordinateurs, imprimantes, onduleurs, consommables et materiel bureautique pour entreprises.", img: SERVICE_IMAGES[8] },
+  { icon: Home, title: "Domotique & Automatisation", desc: "Batiments intelligents : eclairage, HVAC, securite integres.", img: SERVICE_IMAGES[9] },
 ];
 
 const STATS = [
@@ -164,7 +179,7 @@ export default function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-gray-950/82 via-gray-950/48 to-gray-950/8" />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-950/48 via-transparent to-gray-950/18" />
-        <div className="absolute -bottom-1 left-0 right-0 h-28 bg-white" style={{ clipPath: "polygon(0 54%, 12% 46%, 25% 60%, 41% 42%, 58% 55%, 74% 36%, 88% 48%, 100% 30%, 100% 100%, 0 100%)" }} />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-white/70" />
 
         <div className="relative max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
@@ -251,7 +266,7 @@ export default function Index() {
               <FadeIn key={s.title} delay={i * 0.05}>
                 <Link to="/services" className="group block h-full">
                   <div className="h-full rounded-2xl overflow-hidden border border-gray-200 bg-white hover:border-gray-300 hover:shadow-md transition-all duration-200">
-                    <div className="overflow-hidden h-44"><img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" /></div>
+                    <div className="overflow-hidden h-60 sm:h-64"><img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" /></div>
                     <div className="p-5">
                       <div className="flex items-center gap-2.5 mb-2">
                         <div className="gsv-accent-icon w-8 h-8 rounded-lg flex items-center justify-center shrink-0 group-hover:text-rose-500 transition-colors"><s.icon size={15} /></div>
