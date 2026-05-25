@@ -201,6 +201,26 @@ export default function Index() {
         </div>
       </section>
 
+      <section className="bg-white py-12" dir="ltr">
+        <div className="mx-auto max-w-6xl px-6">
+          <FadeIn>
+            <div className="flex flex-col items-center gap-5 border-y border-gray-100 py-8 text-center sm:flex-row sm:text-left">
+              <img
+                src={`${import.meta.env.BASE_URL}badges/agree-etat.png`}
+                alt="Agree par l'etat"
+                className="h-28 w-auto shrink-0 object-contain sm:h-32"
+                loading="lazy"
+              />
+              <div className="max-w-xl" dir={language === "ar" ? "rtl" : "ltr"}>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">{t("certified")}</p>
+                <h2 className="text-2xl font-bold text-gray-900">{trustText.approvedTitle}</h2>
+                <p className="mt-3 text-sm leading-relaxed text-gray-500">{trustText.approvedText}</p>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       <section className="py-20 bg-white" dir="ltr">
         <div className="max-w-6xl mx-auto px-6">
           <div className="relative min-h-[440px]">
@@ -225,26 +245,6 @@ export default function Index() {
               </Link>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="bg-white pb-16" dir="ltr">
-        <div className="mx-auto max-w-6xl px-6">
-          <FadeIn>
-            <div className="flex flex-col items-center gap-5 border-y border-gray-100 py-8 text-center sm:flex-row sm:text-left">
-              <img
-                src={`${import.meta.env.BASE_URL}badges/agree-etat.png`}
-                alt="Agree par l'etat"
-                className="h-28 w-auto shrink-0 object-contain sm:h-32"
-                loading="lazy"
-              />
-              <div className="max-w-xl" dir={language === "ar" ? "rtl" : "ltr"}>
-                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">{t("certified")}</p>
-                <h2 className="text-2xl font-bold text-gray-900">{trustText.approvedTitle}</h2>
-                <p className="mt-3 text-sm leading-relaxed text-gray-500">{trustText.approvedText}</p>
-              </div>
-            </div>
-          </FadeIn>
         </div>
       </section>
 
