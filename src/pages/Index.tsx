@@ -183,10 +183,6 @@ export default function Index() {
 
         <div className="relative max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-white/12 rounded-full px-4 py-1.5 mb-6 ring-1 ring-white/20 backdrop-blur-md">
-              <span className="gsv-red-dot w-1.5 h-1.5 rounded-full" />
-              <span className="text-xs font-semibold text-white/85">{t("heroBadge")}</span>
-            </div>
             <h1 className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight text-white mb-5">{t("heroTitle")}</h1>
             <p className="text-lg text-white/76 leading-relaxed mb-8 max-w-xl">{t("heroText")}</p>
             <div className="flex flex-col sm:flex-row gap-3">
