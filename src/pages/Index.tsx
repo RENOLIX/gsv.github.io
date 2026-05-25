@@ -248,15 +248,71 @@ export default function Index() {
         </div>
       </section>
 
+      <section className="py-24 bg-white" dir="ltr">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid gap-16 lg:grid-cols-[0.9fr_1fr] lg:items-start">
+            <FadeIn>
+              <div className="relative min-h-[520px]">
+                <img
+                  src={`${import.meta.env.BASE_URL}realisations/realisation-10.jpeg`}
+                  alt="Installation reseau GSV"
+                  className="h-[330px] w-[76%] object-cover shadow-xl shadow-gray-200"
+                />
+                <img
+                  src={`${import.meta.env.BASE_URL}realisations/realisation-16.jpeg`}
+                  alt="Systeme de videosurveillance GSV"
+                  className="absolute bottom-0 right-0 h-[290px] w-[76%] object-cover shadow-2xl shadow-gray-200"
+                />
+              </div>
+            </FadeIn>
+            <FadeIn>
+              <div className="pt-4" dir={language === "ar" ? "rtl" : "ltr"}>
+                <p className="text-xs font-semibold uppercase tracking-wider text-sky-600 mb-3">{t("whyEyebrow")}</p>
+                <h2 className="text-3xl sm:text-4xl font-bold leading-tight text-gray-900 mb-5">{t("whyTitle")}</h2>
+                <p className="text-gray-500 leading-relaxed mb-7 max-w-xl">{t("whyText")}</p>
+                <ul className="space-y-3 max-w-xl">
+                  {homeText.why.map((item) => (
+                    <li key={item} className="flex items-center gap-3">
+                      <CheckCircle size={16} className="text-sky-600 shrink-0" />
+                      <span className="text-sm text-gray-600">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8">
+                  <Link to="/about" className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl text-sm font-semibold cursor-pointer transition-all duration-200 bg-white border border-gray-200 hover:border-sky-200">
+                    {t("navAbout")} <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white pb-24" dir="ltr">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mx-auto mb-12 h-24 w-px bg-gray-300" />
+          <div className="grid gap-10 lg:grid-cols-[0.34fr_0.66fr] lg:items-center">
+            <FadeIn>
+              <div className="text-center lg:text-left" dir={language === "ar" ? "rtl" : "ltr"}>
+                <h2 className="text-3xl font-bold text-gray-900 mb-3">{t("servicesTitle")}</h2>
+                <p className="text-xs font-semibold uppercase tracking-wider text-sky-600">{t("servicesEyebrow")}</p>
+                <p className="mt-5 text-sm leading-relaxed text-gray-500 lg:max-w-xs">{t("homeServicesText")}</p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <img
+                src={`${import.meta.env.BASE_URL}realisations/realisation-09.jpeg`}
+                alt="Travaux GSV"
+                className="h-[360px] w-full object-cover shadow-xl shadow-gray-200"
+              />
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <FadeIn>
-            <div className="mb-12">
-              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("servicesEyebrow")}</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">{t("servicesTitle")}</h2>
-              <p className="text-gray-500 max-w-xl">{t("homeServicesText")}</p>
-            </div>
-          </FadeIn>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map((s, i) => (
               <FadeIn key={s.title} delay={i * 0.05}>
@@ -282,27 +338,6 @@ export default function Index() {
       <PartnersMarquee />
 
       <MapBlock />
-
-      <section className="py-24 bg-gray-50 border-y border-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <FadeIn>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("whyEyebrow")}</p>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-5">{t("whyTitle")}</h2>
-                <p className="text-gray-500 leading-relaxed mb-8">{t("whyText")}</p>
-                <ul className="space-y-3">
-                  {homeText.why.map((item) => (
-                    <li key={item} className="flex items-center gap-3"><CheckCircle size={16} className="text-gray-900 shrink-0" /><span className="text-sm text-gray-600">{item}</span></li>
-                  ))}
-                </ul>
-                <div className="mt-8"><Link to="/about" className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl text-sm font-semibold cursor-pointer transition-all duration-200 bg-white border border-gray-200">{t("navAbout")} <ArrowRight size={14} /></Link></div>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.1}><div className="rounded-2xl overflow-hidden"><img src="https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800" alt="Installation camera" className="w-full h-[420px] object-cover" /></div></FadeIn>
-          </div>
-        </div>
-      </section>
 
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
