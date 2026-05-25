@@ -26,7 +26,7 @@ export default function RealisationsMarquee() {
   return (
     <section className="py-20 bg-white border-y border-gray-100" dir="ltr">
       <div className="max-w-6xl mx-auto px-6 mb-10" dir={language === "ar" ? "rtl" : "ltr"}>
-        <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">{t("realisationsEyebrow")}</p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-sky-600 mb-3">{t("realisationsEyebrow")}</p>
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">{t("realisationsTitle")}</h2>
         <p className="text-gray-500 max-w-2xl text-sm leading-relaxed">
           {t("realisationsText")}
@@ -67,7 +67,7 @@ export default function RealisationsMarquee() {
             <button
               type="button"
               onClick={previous}
-              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-900 shadow-sm transition hover:border-blue-500 hover:text-blue-600"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-900 shadow-sm transition hover:border-sky-300 hover:text-sky-600"
               aria-label={t("previousRealisation")}
             >
               <ChevronLeft size={22} />
@@ -79,7 +79,7 @@ export default function RealisationsMarquee() {
             <button
               type="button"
               onClick={next}
-              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-900 shadow-sm transition hover:border-red-500 hover:text-red-600"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-900 shadow-sm transition hover:border-rose-300 hover:text-rose-500"
               aria-label={t("nextRealisation")}
             >
               <ChevronRight size={22} />

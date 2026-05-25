@@ -84,35 +84,35 @@
 }
 
 .gsv-gradient-button {
-  background: linear-gradient(135deg, #0b8fff 0%, #111827 54%, #ff1f2d 100%);
+  background: linear-gradient(135deg, #5aa8e8 0%, #1f2937 58%, #e05b63 100%);
   color: white;
-  box-shadow: 0 12px 32px rgba(11, 143, 255, 0.18), 0 10px 28px rgba(255, 31, 45, 0.16);
+  box-shadow: 0 10px 26px rgba(90, 168, 232, 0.14), 0 8px 22px rgba(224, 91, 99, 0.12);
 }
 
 .gsv-outline-button {
   background: linear-gradient(white, white) padding-box,
-    linear-gradient(135deg, rgba(11, 143, 255, 0.55), rgba(255, 31, 45, 0.45)) border-box;
+    linear-gradient(135deg, rgba(90, 168, 232, 0.42), rgba(224, 91, 99, 0.34)) border-box;
   border: 1px solid transparent;
   color: #111827;
 }
 
 .gsv-accent-icon {
-  background: linear-gradient(135deg, rgba(11, 143, 255, 0.14), rgba(255, 31, 45, 0.12));
-  color: #0b66d8;
+  background: linear-gradient(135deg, rgba(90, 168, 232, 0.12), rgba(224, 91, 99, 0.1));
+  color: #2f76b7;
 }
 
 .gsv-red-dot {
-  background: #ff1f2d;
-  box-shadow: 0 0 18px rgba(255, 31, 45, 0.55);
+  background: #e05b63;
+  box-shadow: 0 0 14px rgba(224, 91, 99, 0.34);
 }
 
 .gsv-blue-dot {
-  background: #0b8fff;
-  box-shadow: 0 0 18px rgba(11, 143, 255, 0.45);
+  background: #5aa8e8;
+  box-shadow: 0 0 14px rgba(90, 168, 232, 0.32);
 }
 
 .gsv-logo-mark {
-  filter: drop-shadow(0 10px 24px rgba(11, 143, 255, 0.18)) drop-shadow(0 8px 18px rgba(255, 31, 45, 0.12));
+  filter: drop-shadow(0 10px 24px rgba(90, 168, 232, 0.13)) drop-shadow(0 8px 18px rgba(224, 91, 99, 0.09));
 }
 
 .gsv-hero-image {
@@ -125,7 +125,7 @@
   right: -8%;
   bottom: -34px;
   height: 96px;
-  background: linear-gradient(135deg, rgba(11, 143, 255, 0.9), rgba(17, 24, 39, 0.94) 55%, rgba(255, 31, 45, 0.85));
+  background: linear-gradient(135deg, rgba(90, 168, 232, 0.72), rgba(31, 41, 55, 0.92) 58%, rgba(224, 91, 99, 0.64));
   border-radius: 48% 52% 0 0 / 72% 62% 0 0;
   opacity: 0.95;
 }

@@ -188,7 +188,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.5 }}
             className="relative overflow-hidden rounded-2xl border border-gray-200 bg-gray-950 px-6 py-10 text-white shadow-xl shadow-gray-200/80 sm:px-10"
           >
-            <div className="absolute inset-0 opacity-80" style={{ background: "linear-gradient(120deg, rgba(11,143,255,0.28), transparent 34%), radial-gradient(circle at 88% 20%, rgba(255,31,45,0.28), transparent 24%)" }} />
+            <div className="absolute inset-0 opacity-75" style={{ background: "linear-gradient(120deg, rgba(90,168,232,0.22), transparent 34%), radial-gradient(circle at 88% 20%, rgba(224,91,99,0.2), transparent 24%)" }} />
             <div className="relative flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-2xl">
                 <p className="text-xs font-semibold uppercase tracking-wider text-blue-200 mb-3">{t("servicesEyebrow")}</p>
@@ -245,12 +245,12 @@ export default function ServicesPage() {
                     <p className="text-sm leading-relaxed text-gray-500">{service.description}</p>
                     <div className="mt-5 flex flex-wrap gap-2">
                       {service.features.map((feature) => (
-                        <span key={feature} className="rounded-md bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-blue-100">
+                        <span key={feature} className="rounded-md bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 ring-1 ring-sky-100">
                           {feature}
                         </span>
                       ))}
                     </div>
-                    <Link to="/contact" className="mt-6 inline-flex items-center text-sm font-semibold text-blue-600 group-hover:text-red-600">
+                    <Link to="/contact" className="mt-6 inline-flex items-center text-sm font-semibold text-sky-600 group-hover:text-rose-500">
                       {t("requestThisService")}
                       <ArrowRight size={15} className="ml-1 transition-transform group-hover:translate-x-1" />
                     </Link>
@@ -292,7 +292,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="py-20 bg-gray-950 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-35" style={{ background: "radial-gradient(circle at 18% 40%, rgba(11,143,255,0.55), transparent 30%), radial-gradient(circle at 82% 35%, rgba(255,31,45,0.42), transparent 24%)" }} />
+        <div className="absolute inset-0 opacity-30" style={{ background: "radial-gradient(circle at 18% 40%, rgba(90,168,232,0.34), transparent 30%), radial-gradient(circle at 82% 35%, rgba(224,91,99,0.24), transparent 24%)" }} />
         <div className="max-w-6xl mx-auto px-6">
           <div className="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
             <div>

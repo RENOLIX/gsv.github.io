@@ -62,8 +62,8 @@ export default function AboutPage() {
       <Navbar />
 
       <section className="relative overflow-hidden bg-gray-950 pt-28 pb-12 text-white">
-        <div className="absolute left-0 top-0 h-full w-1/2 bg-blue-500/20 blur-3xl" />
-        <div className="absolute right-0 top-8 h-32 w-32 rounded-full bg-red-500/25 blur-3xl" />
+        <div className="absolute left-0 top-0 h-full w-1/2 bg-sky-300/18 blur-3xl" />
+        <div className="absolute right-0 top-8 h-32 w-32 rounded-full bg-rose-300/20 blur-3xl" />
         <div className="max-w-6xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <p className="text-xs font-semibold uppercase tracking-wider text-blue-300 mb-3">{t("navAbout")}</p>
@@ -84,7 +84,7 @@ export default function AboutPage() {
                 <ul className="mt-7 space-y-3">
                   {bullets[language].map((item) => (
                     <li key={item} className="flex items-center gap-3">
-                      <CheckCircle size={16} className="text-blue-600 shrink-0" />
+                      <CheckCircle size={16} className="text-sky-600 shrink-0" />
                       <span className="text-sm text-gray-600">{item}</span>
                     </li>
                   ))}
@@ -93,7 +93,7 @@ export default function AboutPage() {
             </FadeIn>
             <FadeIn delay={0.1}>
               <div className="relative">
-                <div className="absolute -left-4 -top-4 h-full w-full rounded-2xl bg-gradient-to-br from-blue-500/20 to-red-500/20" />
+                <div className="absolute -left-4 -top-4 h-full w-full rounded-2xl bg-gradient-to-br from-sky-300/18 to-rose-300/18" />
                 <img
                   src={`${import.meta.env.BASE_URL}about/gsv-office.png`}
                   alt="Bureau GLOBAL SECURITY VISION"

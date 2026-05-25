@@ -112,6 +112,24 @@ const HOME_TEXT = {
   },
 } as const;
 
+const TRUST_TEXT = {
+  fr: {
+    approvedTitle: "Agree et accompagne",
+    approvedText: "GSV s'engage a respecter les exigences techniques de chaque site avec des installations propres, documentees et suivies.",
+    satisfactionLabel: "Satisfaction garantie",
+  },
+  en: {
+    approvedTitle: "Approved and supported",
+    approvedText: "GSV is committed to meeting each site's technical requirements with clean, documented and monitored installations.",
+    satisfactionLabel: "Guaranteed satisfaction",
+  },
+  ar: {
+    approvedTitle: "اعتماد ومرافقة",
+    approvedText: "تلتزم GSV باحترام المتطلبات التقنية لكل موقع من خلال تركيبات نظيفة وموثقة ومتابعة.",
+    satisfactionLabel: "رضا مضمون",
+  },
+};
+
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -125,6 +143,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 export default function Index() {
   const { language, t } = useLanguage();
   const homeText = HOME_TEXT[language];
+  const trustText = TRUST_TEXT[language];
   const services = SERVICES.map((service, index) => ({
     ...service,
     title: homeText.services[index][0],
@@ -137,20 +156,14 @@ export default function Index() {
       <Navbar />
 
       <section className="relative min-h-[760px] overflow-hidden bg-gray-950 pt-40 pb-24">
-        <video
+        <img
+          src={`${import.meta.env.BASE_URL}hero/gsv-home-hero.png`}
+          alt="Maison securisee par GSV"
           className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-        >
-          <source src={`${import.meta.env.BASE_URL}hero/gsv-hero-mobile.mp4`} media="(max-width: 767px)" type="video/mp4" />
-          <source src={`${import.meta.env.BASE_URL}hero/gsv-hero.mp4`} media="(min-width: 768px)" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-950/88 via-gray-950/55 to-gray-950/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-950/55 via-transparent to-gray-950/45" />
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950/82 via-gray-950/48 to-gray-950/8" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-950/48 via-transparent to-gray-950/18" />
         <div className="absolute -bottom-1 left-0 right-0 h-28 bg-white" style={{ clipPath: "polygon(0 54%, 12% 46%, 25% 60%, 41% 42%, 58% 55%, 74% 36%, 88% 48%, 100% 30%, 100% 100%, 0 100%)" }} />
 
         <div className="relative max-w-6xl mx-auto px-6">
@@ -177,28 +190,11 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="bg-white py-0" dir="ltr" aria-label="Badges GSV">
-        <div className="mx-auto flex max-w-6xl items-center justify-center gap-8 px-6 sm:gap-16">
-          <img
-            src={`${import.meta.env.BASE_URL}badges/satisfaction.png`}
-            alt="Satisfaction garantie"
-            className="h-28 w-auto object-contain sm:h-36 lg:h-44"
-            loading="eager"
-          />
-          <img
-            src={`${import.meta.env.BASE_URL}badges/agree-etat.png`}
-            alt="Agree par l'etat"
-            className="h-28 w-auto object-contain sm:h-36 lg:h-44"
-            loading="eager"
-          />
-        </div>
-      </section>
-
       <section className="py-20 bg-white" dir="ltr">
         <div className="max-w-6xl mx-auto px-6">
           <div className="relative min-h-[440px]">
             <div className="lg:absolute lg:right-0 lg:top-0 lg:w-[56%]">
-              <div className="border-t-4 border-blue-500 border-r-4 border-r-red-500 shadow-xl shadow-gray-200/80">
+              <div className="border-t-4 border-sky-300 border-r-4 border-r-rose-300 shadow-xl shadow-gray-200/80">
                 <img
                   src={`${import.meta.env.BASE_URL}about/gsv-office.png`}
                   alt="Bureau GLOBAL SECURITY VISION"
@@ -206,8 +202,8 @@ export default function Index() {
                 />
               </div>
             </div>
-            <div className="relative z-10 mt-[-60px] lg:mt-16 lg:w-[56%] border-l-4 border-blue-500 bg-white p-7 sm:p-10 shadow-2xl shadow-gray-200" dir={language === "ar" ? "rtl" : "ltr"}>
-              <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">{t("aboutUs")}</p>
+            <div className="relative z-10 mt-[-60px] lg:mt-16 lg:w-[56%] border-l-4 border-sky-300 bg-white p-7 sm:p-10 shadow-2xl shadow-gray-200" dir={language === "ar" ? "rtl" : "ltr"}>
+              <p className="text-xs font-semibold uppercase tracking-wider text-sky-600 mb-3">{t("aboutUs")}</p>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">GLOBAL SECURITY VISION</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-6">
                 {t("aboutPreviewText")}
@@ -218,6 +214,26 @@ export default function Index() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white pb-16" dir="ltr">
+        <div className="mx-auto max-w-6xl px-6">
+          <FadeIn>
+            <div className="flex flex-col items-center gap-5 border-y border-gray-100 py-8 text-center sm:flex-row sm:text-left">
+              <img
+                src={`${import.meta.env.BASE_URL}badges/agree-etat.png`}
+                alt="Agree par l'etat"
+                className="h-28 w-auto shrink-0 object-contain sm:h-32"
+                loading="lazy"
+              />
+              <div className="max-w-xl" dir={language === "ar" ? "rtl" : "ltr"}>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">{t("certified")}</p>
+                <h2 className="text-2xl font-bold text-gray-900">{trustText.approvedTitle}</h2>
+                <p className="mt-3 text-sm leading-relaxed text-gray-500">{trustText.approvedText}</p>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -238,11 +254,11 @@ export default function Index() {
                     <div className="overflow-hidden h-44"><img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" /></div>
                     <div className="p-5">
                       <div className="flex items-center gap-2.5 mb-2">
-                        <div className="gsv-accent-icon w-8 h-8 rounded-lg flex items-center justify-center shrink-0 group-hover:text-red-600 transition-colors"><s.icon size={15} /></div>
+                        <div className="gsv-accent-icon w-8 h-8 rounded-lg flex items-center justify-center shrink-0 group-hover:text-rose-500 transition-colors"><s.icon size={15} /></div>
                         <h3 className="font-semibold text-gray-900 text-sm">{s.title}</h3>
                       </div>
                       <p className="text-xs text-gray-500 leading-relaxed">{s.desc}</p>
-                      <div className="flex items-center gap-1 mt-3 text-xs font-medium text-blue-600 group-hover:text-red-600 transition-colors">{t("learnMore")} <ArrowRight size={11} /></div>
+                      <div className="flex items-center gap-1 mt-3 text-xs font-medium text-sky-600 group-hover:text-rose-500 transition-colors">{t("learnMore")} <ArrowRight size={11} /></div>
                     </div>
                   </div>
                 </Link>
@@ -279,7 +295,20 @@ export default function Index() {
 
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <FadeIn><div className="mb-12"><p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("testimonialsEyebrow")}</p><h2 className="text-3xl sm:text-4xl font-bold text-gray-900">{t("testimonialsTitle")}</h2></div></FadeIn>
+          <FadeIn>
+            <div className="mb-12 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("testimonialsEyebrow")}</p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">{t("testimonialsTitle")}</h2>
+              </div>
+              <img
+                src={`${import.meta.env.BASE_URL}badges/satisfaction.png`}
+                alt={trustText.satisfactionLabel}
+                className="h-28 w-auto object-contain sm:h-32"
+                loading="lazy"
+              />
+            </div>
+          </FadeIn>
           <div className="grid md:grid-cols-3 gap-6">
             {homeText.testimonials.map((t, i) => (
               <FadeIn key={t.name} delay={i * 0.08}>
@@ -304,7 +333,7 @@ export default function Index() {
       </section>
 
       <section className="py-20 bg-gray-950 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30" style={{ background: "radial-gradient(circle at 25% 35%, rgba(11,143,255,0.45), transparent 28%), radial-gradient(circle at 78% 45%, rgba(255,31,45,0.35), transparent 24%)" }} />
+        <div className="absolute inset-0 opacity-28" style={{ background: "radial-gradient(circle at 25% 35%, rgba(90,168,232,0.34), transparent 28%), radial-gradient(circle at 78% 45%, rgba(224,91,99,0.24), transparent 24%)" }} />
         <div className="max-w-6xl mx-auto px-6 text-center">
           <FadeIn>
             <div className="relative">

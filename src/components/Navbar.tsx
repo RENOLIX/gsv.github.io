@@ -30,7 +30,7 @@ export default function Navbar() {
         WebkitBackdropFilter: "blur(28px) saturate(180%)",
         background: "rgba(255,255,255,0.78)",
         borderBottom: "1px solid rgba(255,255,255,0.85)",
-        boxShadow: "0 4px 32px rgba(11,143,255,0.10), 0 2px 20px rgba(255,31,45,0.06)",
+        boxShadow: "0 4px 28px rgba(90,168,232,0.08), 0 2px 18px rgba(224,91,99,0.045)",
       }
     : {
         backdropFilter: "blur(18px) saturate(160%)",
