@@ -80,7 +80,7 @@ const HOME_TEXT = {
       ["Domotique & Automatisation", "Batiments intelligents : eclairage, HVAC, securite integres."],
     ],
     stats: ["Clients satisfaits", "Annees d'experience", "Projets realises", "Support & maintenance"],
-    why: ["Techniciens certifies par les fabricants", "Materiel de marques internationales", "Etude technique et devis gratuits", "Maintenance preventive et corrective 24/7", "Garantie pieces et main-d'oeuvre"],
+    why: ["Entreprise fondee en 2020", "Diagnostic pousse pour determiner vos besoins", "Services adaptes a chaque client", "Approche innovante et installation professionnelle", "Solutions fiables pour ameliorer la securite de votre site"],
     testimonials: TESTIMONIALS,
   },
   en: {
@@ -97,7 +97,7 @@ const HOME_TEXT = {
       ["Smart automation", "Smart buildings: lighting, HVAC and integrated security control."],
     ],
     stats: ["Satisfied clients", "Years of experience", "Completed projects", "Support & maintenance"],
-    why: ["Technicians certified by manufacturers", "International brand equipment", "Free technical study and quote", "Preventive and corrective maintenance 24/7", "Parts and labor warranty"],
+    why: ["Company founded in 2020", "Detailed diagnosis to identify your needs", "Services adapted to each client", "Innovative approach and professional installation", "Reliable solutions to improve your site's security"],
     testimonials: [
       { name: "Karim Bensalem", role: "General Manager, Hotel Panorama", text: "GSV installed a full video surveillance system in our hotel. Clean work and a very professional team." },
       { name: "Samira Ouali", role: "Security Manager, Atlas Shopping Center", text: "Their intrusion alarm system greatly strengthened our security. Responsive and trustworthy. Highly recommended." },
@@ -118,7 +118,7 @@ const HOME_TEXT = {
       ["الأتمتة والبيت الذكي", "مبان ذكية: إضاءة وتكييف وتحكم أمني مدمج."],
     ],
     stats: ["عميل راض", "سنوات خبرة", "مشروع منجز", "دعم وصيانة"],
-    why: ["تقنيون معتمدون من المصنعين", "معدات من علامات عالمية", "دراسة تقنية وعرض سعر مجاني", "صيانة وقائية وتصحيحية 24/7", "ضمان على القطع واليد العاملة"],
+    why: ["شركة تأسست سنة 2020", "تشخيص دقيق لتحديد احتياجاتكم", "خدمات مناسبة لكل عميل", "نهج مبتكر وتركيب احترافي", "حلول موثوقة لتحسين أمن موقعكم"],
     testimonials: [
       { name: "كريم بن سالم", role: "المدير العام، فندق بانوراما", text: "قامت GSV بتركيب نظام مراقبة كامل في فندقنا. عمل نظيف وفريق محترف جداً." },
       { name: "سميرة والي", role: "مسؤولة الأمن، مركز أطلس التجاري", text: "نظام مكافحة التسلل عزز أمننا بشكل كبير. فريق سريع وموثوق. أنصح بهم." },
