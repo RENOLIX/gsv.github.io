@@ -130,17 +130,17 @@ const HOME_TEXT = {
 const TRUST_TEXT = {
   fr: {
     approvedTitle: "Agree et accompagne",
-    approvedText: "GSV s'engage a respecter les exigences techniques de chaque site avec des installations propres, documentees et suivies.",
+    approvedText: "Conformement au decret executif n°09-410 du 10 decembre 2009, notre entreprise dispose d'un agrement autorisant l'importation, la commercialisation, l'installation et la maintenance des equipements sensibles lies aux systemes de securite et de surveillance. Cet agrement delivre par l'Etat garantit la conformite reglementaire, la fiabilite ainsi que le professionnalisme de nos prestations dans le domaine des equipements securitaires sensibles.",
     satisfactionLabel: "Satisfaction garantie",
   },
   en: {
     approvedTitle: "Approved and supported",
-    approvedText: "GSV is committed to meeting each site's technical requirements with clean, documented and monitored installations.",
+    approvedText: "In accordance with Executive Decree No. 09-410 of December 10, 2009, our company holds an approval authorizing the import, marketing, installation and maintenance of sensitive equipment related to security and surveillance systems. This State-issued approval guarantees regulatory compliance, reliability and professionalism in our services for sensitive security equipment.",
     satisfactionLabel: "Guaranteed satisfaction",
   },
   ar: {
     approvedTitle: "اعتماد ومرافقة",
-    approvedText: "تلتزم GSV باحترام المتطلبات التقنية لكل موقع من خلال تركيبات نظيفة وموثقة ومتابعة.",
+    approvedText: "طبقاً للمرسوم التنفيذي رقم 09-410 المؤرخ في 10 ديسمبر 2009، تمتلك شركتنا اعتماداً يسمح باستيراد وتسويق وتركيب وصيانة التجهيزات الحساسة المرتبطة بأنظمة الأمن والمراقبة. يضمن هذا الاعتماد الصادر عن الدولة المطابقة التنظيمية والموثوقية والاحترافية في خدماتنا الخاصة بالتجهيزات الأمنية الحساسة.",
     satisfactionLabel: "رضا مضمون",
   },
 };
@@ -198,6 +198,36 @@ export default function Index() {
               ))}
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <FadeIn>
+            <div className="mb-12 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("testimonialsEyebrow")}</p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">{t("testimonialsTitle")}</h2>
+              </div>
+              <img
+                src={`${import.meta.env.BASE_URL}badges/satisfaction.png`}
+                alt={trustText.satisfactionLabel}
+                className="h-28 w-auto object-contain sm:h-32"
+                loading="lazy"
+              />
+            </div>
+          </FadeIn>
+          <div className="grid md:grid-cols-3 gap-6">
+            {homeText.testimonials.map((t, i) => (
+              <FadeIn key={t.name} delay={i * 0.08}>
+                <div className="border border-gray-200 rounded-xl p-6 bg-white">
+                  <div className="flex gap-0.5 mb-4">{Array.from({ length: 5 }).map((_, j) => <Star key={j} size={13} className="fill-yellow-400 text-yellow-400" />)}</div>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-5">{`"${t.text}"`}</p>
+                  <div><div className="text-sm font-semibold text-gray-900">{t.name}</div><div className="text-xs text-gray-400 mt-0.5">{t.role}</div></div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -338,36 +368,6 @@ export default function Index() {
       <PartnersMarquee />
 
       <MapBlock />
-
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <FadeIn>
-            <div className="mb-12 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t("testimonialsEyebrow")}</p>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">{t("testimonialsTitle")}</h2>
-              </div>
-              <img
-                src={`${import.meta.env.BASE_URL}badges/satisfaction.png`}
-                alt={trustText.satisfactionLabel}
-                className="h-28 w-auto object-contain sm:h-32"
-                loading="lazy"
-              />
-            </div>
-          </FadeIn>
-          <div className="grid md:grid-cols-3 gap-6">
-            {homeText.testimonials.map((t, i) => (
-              <FadeIn key={t.name} delay={i * 0.08}>
-                <div className="border border-gray-200 rounded-xl p-6 bg-white">
-                  <div className="flex gap-0.5 mb-4">{Array.from({ length: 5 }).map((_, j) => <Star key={j} size={13} className="fill-yellow-400 text-yellow-400" />)}</div>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-5">{`"${t.text}"`}</p>
-                  <div><div className="text-sm font-semibold text-gray-900">{t.name}</div><div className="text-xs text-gray-400 mt-0.5">{t.role}</div></div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="py-24 bg-white border-y border-gray-100">
         <div className="max-w-6xl mx-auto px-6">

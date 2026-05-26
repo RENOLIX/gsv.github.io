@@ -20,6 +20,7 @@ const contactDetails = {
   fr: {
     namePlaceholder: "Jean Dupont",
     emailPlaceholder: "exemple@email.com",
+    addressPlaceholder: "Adresse du site / ville",
     country: "Algerie",
     week: "Lun - Ven : 08:00 - 18:00",
     saturday: "Sam : 08:00 - 13:00",
@@ -27,6 +28,7 @@ const contactDetails = {
   en: {
     namePlaceholder: "John Smith",
     emailPlaceholder: "example@email.com",
+    addressPlaceholder: "Site address / city",
     country: "Algeria",
     week: "Mon - Fri: 08:00 - 18:00",
     saturday: "Sat: 08:00 - 13:00",
@@ -34,19 +36,20 @@ const contactDetails = {
   ar: {
     namePlaceholder: "الاسم الكامل",
     emailPlaceholder: "example@email.com",
+    addressPlaceholder: "عنوان الموقع / المدينة",
     country: "الجزائر",
     week: "الأحد - الخميس : 08:00 - 18:00",
     saturday: "السبت : 08:00 - 13:00",
   },
 };
 
-type FormState = { name: string; customerType: "Entreprise" | "Particulier"; company: string; email: string; phone: string; service: string; message: string };
+type FormState = { name: string; customerType: "Entreprise" | "Particulier"; company: string; address: string; email: string; phone: string; service: string; message: string };
 
 export default function ContactPage() {
   const { language, t } = useLanguage();
   const details = contactDetails[language];
   const serviceOptions = SERVICES_LIST[language];
-  const [form, setForm] = useState<FormState>({ name: "", customerType: "Entreprise", company: "", email: "", phone: "", service: "", message: "" });
+  const [form, setForm] = useState<FormState>({ name: "", customerType: "Entreprise", company: "", address: "", email: "", phone: "", service: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const set = (field: keyof FormState, value: string) => setForm((p) => ({ ...p, [field]: value }));
@@ -84,7 +87,7 @@ export default function ContactPage() {
                   <div className="gsv-accent-icon w-14 h-14 rounded-full flex items-center justify-center mb-5"><CheckCircle size={28} /></div>
                   <h3 className="text-xl font-bold mb-2 text-gray-900">{t("sentTitle")}</h3>
                   <p className="text-gray-500 text-sm max-w-xs">{t("sentText")}</p>
-                  <button className="mt-7 inline-flex items-center justify-center px-6 py-2.5 rounded-xl text-sm font-semibold cursor-pointer bg-white border border-gray-200 shadow-sm" onClick={() => { setSubmitted(false); setForm({ name: "", customerType: "Entreprise", company: "", email: "", phone: "", service: "", message: "" }); }}>{t("newRequest")}</button>
+                  <button className="mt-7 inline-flex items-center justify-center px-6 py-2.5 rounded-xl text-sm font-semibold cursor-pointer bg-white border border-gray-200 shadow-sm" onClick={() => { setSubmitted(false); setForm({ name: "", customerType: "Entreprise", company: "", address: "", email: "", phone: "", service: "", message: "" }); }}>{t("newRequest")}</button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -115,6 +118,7 @@ export default function ContactPage() {
                     <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">{t("companyLabel")}</label><Input placeholder={t("companyType")} value={form.company} onChange={(e) => set("company", e.target.value)} /></div>
                     <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">{t("emailLabel")} <span className="text-red-500">*</span></label><Input dir="ltr" type="email" placeholder={details.emailPlaceholder} value={form.email} onChange={(e) => set("email", e.target.value)} /></div>
                   </div>
+                  <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">{t("address")}</label><Input placeholder={details.addressPlaceholder} value={form.address} onChange={(e) => set("address", e.target.value)} /></div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">{t("phoneLabel")}</label><Input dir="ltr" type="tel" placeholder="0559 40 08 55" value={form.phone} onChange={(e) => set("phone", e.target.value)} /></div>
                     <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">{t("serviceLabel")}</label><Select onValueChange={(v) => set("service", v)}><SelectTrigger><SelectValue placeholder={t("selectService")} /></SelectTrigger><SelectContent>{serviceOptions.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}</SelectContent></Select></div>
