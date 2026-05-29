@@ -102,7 +102,18 @@ export default function Footer() {
       <div className="border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-gray-400">© {year} GSV - Global Security Vision. {t("rights")}</p>
-          <p className="text-xs text-gray-400">{t("certified")}</p>
+          <div className="flex flex-col items-center gap-1 sm:items-end">
+            <p className="text-xs text-gray-400">{t("certified")}</p>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-gray-400">
+              Developed by{" "}
+              <span
+                className="text-sm font-bold tracking-[0.12em] text-gray-700"
+                style={{ fontFamily: '"Playfair Display", serif' }}
+              >
+                SITEMAGIQUE
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
