@@ -3,7 +3,7 @@ import path from "node:path";
 
 const root = process.cwd();
 const distPath = path.join(root, "dist");
-const siteUrl = "https://renolix.github.io/gsv.github.io";
+const siteUrl = "https://gsv-dz.com";
 const routes = ["services", "about", "contact"];
 
 async function ensureStaticRoute(routePath, html) {

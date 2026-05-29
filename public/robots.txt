@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://renolix.github.io/gsv.github.io/sitemap.xml
+Sitemap: https://gsv-dz.com/sitemap.xml

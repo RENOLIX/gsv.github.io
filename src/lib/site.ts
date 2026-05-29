@@ -2,7 +2,7 @@ export const siteContact = {
   storeName: "GSV",
   email: "contact.gsv.dz@gmail.com",
   emailLabel: "Nous contacter par email",
-  siteUrl: "https://renolix.github.io/gsv.github.io/",
+  siteUrl: "https://gsv-dz.com/",
   mobile: "0559400855",
   landline: "",
   whatsapp: "213559400855",
